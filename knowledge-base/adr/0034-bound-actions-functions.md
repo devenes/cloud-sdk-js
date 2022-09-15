@@ -19,11 +19,11 @@ The name of the parameter is not relevant.
 
 ## Decision
 
-We will implement bound actions and functions using xy API.
+We will implement bound actions and functions using for OData v4 object oriented style API (Option A).
 
 ## Consequences
 
-What becomes easier or more difficult to do because of this change?
+- We need to ensure users are not confused about different ways of calling bound and unbound actions and functions
 
 # Appendix - API Options
 
@@ -31,8 +31,10 @@ The following API options had been considered for calling bound actions and func
 
 ## Option A - Object Oriented Style
 
+The generated entity classes get additional methods for bound actions and functions.
+
 ```typescript
-const myObject = new MyEntity({id: 42})
+const myObject = await myApi.requestBuilder().getByKey(42).execute(destination)
 
 await myObject.boundActionWithoutParameter().execute(destination)
 await myObject.boundActionWithParameter({param1: "foo", param2: "bar"}).execute(destination)
@@ -67,7 +69,7 @@ This option is most similar to the existing API for using unbound actions and fu
 The only difference is that the binding parameter needs to be passed as an argument.
 
 ```typescript
-const myObject = new MyEntity({id: 42})
+const myObject = await myApi.requestBuilder().getByKey(42).execute(destination)
 
 await actionImports.boundActionWithoutParameter({myObject}).execute(destination)
 await actionImports.boundActionWithParameter({myObject, param1: "foo", param2: "bar"}).execute(destination)
