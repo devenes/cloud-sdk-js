@@ -41,6 +41,13 @@ await myObject.boundFunctionWithoutParameter().execute(destination)
 await myObject.boundFunctionWithParameter({param1: "foo", param2: "bar"}).execute(destination)
 ```
 
+Pro:
+- Familiar to developers who are used to object oriented programming
+- Unambiguous which instance of `MyEntity` the call refers to
+
+Con:
+- Introduces a new "entry point" for the API, might be hard to discover for users
+
 ## Option B - Static Function Style
 
 ```typescript
@@ -50,6 +57,9 @@ await MyEntity.boundActionWithParameter({param1: "foo", param2: "bar"}).execute(
 await MyEntity.boundFunctionWithoutParameter().execute(destination)
 await MyEntity.boundFunctionWithParameter({param1: "foo", param2: "bar"}).execute(destination)
 ```
+
+Con:
+- Unclear which instance of `MyEntity` the call refers to
 
 ## Option C - Unbound Style
 
@@ -76,6 +86,14 @@ This syntax is closes to the EDMX-XML representation by ODdata which would read 
     <ReturnType Type="XYService.Result"/>
 </Action>
 ```
+
+Pro:
+- Most symmetric compared to the existing API for calling unbound actions and functions
+- Closest to EDMX representation
+
+Con:
+- Might be less intuitive and less discoverable compared to option A
+- Less elegant compared to option A
 
 ## References
 
