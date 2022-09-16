@@ -16,6 +16,10 @@ module.exports = async srv => {
     oRequest.reply(entity.StringProperty);
   });
 
+  srv.on('boundFunctionWithoutArguments', 'TestEntity', async oRequest => {
+    oRequest.reply('xyz');
+  });
+
   // bound action
   srv.on('deleteEntity', 'TestEntity', async oRequest => {
     const entity = await cds
@@ -25,6 +29,10 @@ module.exports = async srv => {
       .transaction(oRequest)
       .run(DELETE.from(TestEntity).byKey(entity.KeyTestEntity));
     oRequest.reply(entity.KeyTestEntity);
+  });
+
+  srv.on('boundActionWithoutArguments', 'TestEntity', async oRequest => {
+    oRequest.reply('abc');
   });
 
   // unbound function

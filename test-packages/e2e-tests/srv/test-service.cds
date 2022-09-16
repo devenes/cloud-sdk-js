@@ -6,7 +6,11 @@ service TestService {
     actions {
       function getStringProperty() returns String;
 
+      function boundFunctionWithoutArguments() returns String;
+
       action deleteEntity() returns Integer;
+
+      action boundActionWithoutArguments() returns String;
     }
   entity TestEntityLink as projection on cloudsdk.TestEntityLink;
 
