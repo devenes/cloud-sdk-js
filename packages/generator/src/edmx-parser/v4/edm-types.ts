@@ -33,7 +33,14 @@ export interface EdmxNavigationPropertyBinding {
  */
 export type EdmxEntityTypeV4 = EdmxEntityTypeBase<EdmxNavigationPropertyV4> &
   EdmxDerivedType &
-  EdmxNamespaced;
+  EdmxNamespaced &
+  EdmxEntityWithBound;
+
+interface EdmxEntityWithBound {
+  BoundFunction: EdmxFunction[];
+  BoundAction: EdmxAction[];
+}
+
 /**
  * @internal
  */

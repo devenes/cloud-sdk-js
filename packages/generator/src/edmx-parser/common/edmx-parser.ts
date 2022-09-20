@@ -27,7 +27,9 @@ export function parseEntityTypesBase(root: any): EdmxEntityTypeBase<any>[] {
     },
     NavigationProperty: forceArray(e.NavigationProperty),
     Property: forceArray(e.Property),
-    Namespace: e.Namespace
+    Namespace: e.Namespace,
+    BoundFunction: root[0]['Function'].filter(f => f.IsBound === 'true'),
+    BoundAction: root[0]['Action'].filter(a => a.IsBound === 'true')
   }));
 }
 /**

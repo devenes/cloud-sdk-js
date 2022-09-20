@@ -157,6 +157,14 @@ export interface EdmxEntityTypeBase<NavigationT>
    * @internal
    */
   NavigationProperty: NavigationT[];
+  /**
+   * @internal
+   */
+  BoundFunction: any[];
+  /**
+   * @internal
+   */
+  BoundAction: any[];
 }
 /**
  * @internal

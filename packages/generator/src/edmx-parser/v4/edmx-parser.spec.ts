@@ -71,4 +71,30 @@ describe('edmx-edmx-parser', () => {
       expect(c.Property).toBeInstanceOf(Array);
     });
   });
+
+  it('v4: parses EDMX with bound functions/actions', () => {
+    const metadataEdmx = readEdmxFile(
+      resolve(
+        oDataServiceSpecs,
+        'v4',
+        'API_BOUND_SRV',
+        'API_BOUND_FUNCTIONS_ACTIONS_SRV.edmx'
+      )
+    );
+
+    parseEntityType(metadataEdmx.root).forEach(e => {
+      expect(e.BoundFunction).toBeDefined();
+      expect(e.BoundAction).toBeDefined();
+      expect(e.BoundFunction.length).toEqual(1);
+      expect(e.BoundAction.length).toEqual(1);
+
+      const fn = e.BoundFunction[0];
+      expect(fn.Name).toEqual('boundFunctionWithoutArguments');
+      expect(fn.IsBound).toEqual('true');
+
+      const act = e.BoundAction[0];
+      expect(act.Name).toEqual('boundActionWithoutArguments');
+      expect(act.IsBound).toEqual('true');
+    });
+  });
 });
