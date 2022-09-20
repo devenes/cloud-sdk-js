@@ -26,6 +26,31 @@ describe('edmx-file-reader', () => {
     ).not.toThrow();
   });
 
+  it('v4: parses edmx file with bound action and function properly', () => {
+    const metadataEdmx = readEdmxFile(
+      resolve(
+        oDataServiceSpecs,
+        'v4',
+        'API_BOUND_SRV',
+        'API_BOUND_FUNCTIONS_ACTIONS_SRV.edmx'
+      )
+    );
+
+    const parsedFunctions = parseFunctions(metadataEdmx.root);
+    expect(parsedFunctions.length).toBe(2);
+    expect(
+      parsedFunctions.filter(f => f.Name === 'boundFunctionWithoutArguments')[0]
+        .IsBound
+    ).toBeTruthy();
+
+    const parsedActions = parseActions(metadataEdmx.root);
+    expect(parsedActions.length).toBe(2);
+    expect(
+      parsedActions.filter(a => a.Name === 'boundActionWithoutArguments')[0]
+        .IsBound
+    ).toBeTruthy();
+  });
+
   it('v4: parses edmx file that contains multiple schemas to JSON and coerces properties to arrays', () => {
     const metadataEdmx = readEdmxFile(
       resolve(
