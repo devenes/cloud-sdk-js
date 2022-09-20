@@ -1,5 +1,6 @@
 import {
   ClassDeclarationStructure,
+  MethodDeclarationStructure,
   PropertyDeclarationStructure,
   StructureKind
 } from 'ts-morph';
@@ -11,7 +12,9 @@ import {
   addLeadingNewline
 } from '../typedoc';
 import {
+  VdmActionImport,
   VdmEntity,
+  VdmFunctionImport,
   VdmNavigationProperty,
   VdmProperty,
   VdmServiceMetadata
@@ -34,6 +37,7 @@ export function entityClass(
       ...properties(entity),
       ...navProperties(entity, service)
     ],
+    methods: [...boundFunctions(entity), ...boundActions(entity)],
     isExported: true,
     docs: [addLeadingNewline(getEntityDescription(entity, service))]
   };
@@ -86,6 +90,20 @@ function properties(entity: VdmEntity): PropertyDeclarationStructure[] {
   return entity.properties.map(prop => property(prop));
 }
 
+function boundFunctions(entity: VdmEntity): MethodDeclarationStructure[] {
+  if (entity.boundFunctions === undefined) {
+    return [];
+  }
+  return entity.boundFunctions.map(f => boundFunction(f));
+}
+
+function boundActions(entity: VdmEntity): MethodDeclarationStructure[] {
+  if (entity.boundActions === undefined) {
+    return [];
+  }
+  return entity.boundActions.map(a => boundAction(a));
+}
+
 function property(prop: VdmProperty): PropertyDeclarationStructure {
   return {
     kind: StructureKind.Property,
@@ -99,6 +117,24 @@ function property(prop: VdmProperty): PropertyDeclarationStructure {
         })
       )
     ]
+  };
+}
+
+function boundFunction(fn: VdmFunctionImport): MethodDeclarationStructure {
+  return {
+    kind: StructureKind.Method,
+    name: fn.name,
+    returnType: 'string',// fn.returnType.returnType,
+    statements: []
+  };
+}
+
+function boundAction(a: VdmActionImport): MethodDeclarationStructure {
+  return {
+    kind: StructureKind.Method,
+    name: a.name,
+    returnType: 'string',// a.returnType.returnType,
+    statements: []
   };
 }
 

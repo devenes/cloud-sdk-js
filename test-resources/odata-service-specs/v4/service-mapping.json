@@ -8,5 +8,10 @@
     "directoryName": "test-service",
     "servicePath": "/sap/opu/odata/sap/API_TEST_SRV",
     "npmPackageName": "test-service"
+  },
+  "API_BOUND_FUNCTIONS_ACTIONS_SRV": {
+    "directoryName": "test-service",
+    "servicePath": "/odata/test-service",
+    "npmPackageName": "test-service"
   }
 }

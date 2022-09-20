@@ -3,11 +3,6 @@
   <edmx:DataServices>
     <Schema Namespace="TestService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <EntityContainer Name="EntityContainer">
-        <EntitySet Name="TestEntity" EntityType="TestService.TestEntity">
-          <NavigationPropertyBinding Path="ToMultiLink" Target="TestEntityLink"/>
-        </EntitySet>
-        <EntitySet Name="TestEntityLink" EntityType="TestService.TestEntityLink"/>
-        <EntitySet Name="TestEntity50Prop" EntityType="TestService.TestEntity50Prop"/>
         <FunctionImport Name="returnSapCloudSdk" Function="TestService.returnSapCloudSdk"/>
         <FunctionImport Name="concatStrings" Function="TestService.concatStrings"/>
         <FunctionImport Name="returnInt" Function="TestService.returnInt"/>
@@ -34,9 +29,6 @@
         <Property Name="TimeOfDayProperty" Type="Edm.TimeOfDay"/>
         <Property Name="DataTimeOffsetDataTimeProperty" Type="Edm.DateTimeOffset"/>
         <Property Name="DataTimeOffsetTimestampProperty" Type="Edm.DateTimeOffset" Precision="7"/>
-        <NavigationProperty Name="ToMultiLink" Type="Collection(TestService.TestEntityLink)">
-          <OnDelete Action="Cascade"/>
-        </NavigationProperty>
       </EntityType>
       <Function Name="boundFunctionWithoutArguments" IsBound="true" IsComposable="false">
         <Parameter Name="in" Type="TestService.TestEntity"/>

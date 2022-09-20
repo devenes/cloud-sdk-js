@@ -42,5 +42,8 @@ describe('entity class generator', () => {
       ],
       [`${toBrunch.instancePropertyName}?`, 'Brunch<T> | null']
     ]);
+
+    expect(classDeclaration.methods).toBeDefined();
+    expect(classDeclaration.methods?.length).toEqual(2);
   });
 });

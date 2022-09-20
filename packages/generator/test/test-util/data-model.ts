@@ -9,7 +9,8 @@ import {
   VdmServiceMetadata,
   VdmParameter,
   VdmActionImport,
-  VdmUnsupportedReason
+  VdmUnsupportedReason,
+  VdmFunctionImportReturnType
 } from '../../src/vdm-types';
 
 export const entityName: VdmProperty = {
@@ -62,7 +63,9 @@ export const brunchEntity: VdmEntity = {
   creatable: true,
   deletable: true,
   updatable: true,
-  entityTypeNamespace: ''
+  entityTypeNamespace: '',
+  boundFunctions: [],
+  boundActions: []
 };
 
 export const toBrunch: VdmNavigationProperty = {
@@ -76,6 +79,33 @@ export const toBrunch: VdmNavigationProperty = {
   toEntityClassName: brunchEntity.className
 };
 
+const myReturnType: VdmFunctionImportReturnType = {
+  returnType: 'string',
+  isCollection: false,
+  isNullable: false,
+  returnTypeCategory: VdmReturnTypeCategory.EDM_TYPE
+};
+
+const myFunction: VdmFunctionImport = {
+  httpMethod: 'GET',
+  returnType: myReturnType,
+  originalName: 'myFn',
+  parameters: [],
+  parametersTypeName: '',
+  name: 'myFn',
+  description: ''
+};
+
+const myAction: VdmActionImport = {
+  httpMethod: 'GET',
+  returnType: myReturnType,
+  originalName: 'myAct',
+  parameters: [],
+  parametersTypeName: '',
+  name: 'myAct',
+  description: ''
+};
+
 export const breakfastEntity: VdmEntity = {
   className: 'Breakfast',
   description: 'Breakfast is cool.',
@@ -87,7 +117,9 @@ export const breakfastEntity: VdmEntity = {
   creatable: true,
   deletable: false,
   updatable: true,
-  entityTypeNamespace: ''
+  entityTypeNamespace: '',
+  boundFunctions: [myFunction],
+  boundActions: [myAction]
 };
 
 function getFunctionImport(

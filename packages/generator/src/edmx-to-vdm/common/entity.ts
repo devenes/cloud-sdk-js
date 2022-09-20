@@ -13,7 +13,9 @@ import {
   VdmNavigationProperty,
   VdmProperty,
   VdmMappedEdmType,
-  VdmEnumType
+  VdmEnumType,
+  VdmFunctionImport,
+  VdmActionImport
 } from '../../vdm-types';
 import { ServiceNameFormatter } from '../../service-name-formatter';
 import { applyPrefixOnJsConflictParam } from '../../name-formatting-strategies';
@@ -62,7 +64,19 @@ export function transformEntityBase(
       : true,
     deletable: entityMetadata.entitySet
       ? isDeletable(entityMetadata.entitySet)
-      : true
+      : true,
+    boundFunctions: boundFunctions(
+      entityMetadata,
+      complexTypes,
+      formatter,
+      enumTypes
+    ),
+    boundActions: boundActions(
+      entityMetadata,
+      complexTypes,
+      formatter,
+      enumTypes
+    )
   };
 
   return {
@@ -125,6 +139,25 @@ function properties(
     };
   });
 }
+
+function boundFunctions(
+  entity: JoinedEntityMetadata<EdmxEntitySetBase, any>,
+  complexTypes: VdmComplexType[],
+  formatter: ServiceNameFormatter,
+  enumTypes: VdmEnumType[]
+): VdmFunctionImport[] {
+  return entity.entityType.BoundFunction;
+}
+
+function boundActions(
+  entity: JoinedEntityMetadata<EdmxEntitySetBase, any>,
+  complexTypes: VdmComplexType[],
+  formatter: ServiceNameFormatter,
+  enumTypes: VdmEnumType[]
+): VdmActionImport[] {
+  return entity.entityType.BoundAction;
+}
+
 /**
  * @internal
  */
