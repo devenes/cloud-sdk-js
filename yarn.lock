@@ -1099,6 +1099,25 @@
   optionalDependencies:
     npmlog "2 || ^3.1.0 || ^4.0.0"
 
+"@sap-cloud-sdk/generator@file:packages/generator":
+  version "2.8.0"
+  dependencies:
+    "@sap-cloud-sdk/generator-common" "^2.8.0"
+    "@sap-cloud-sdk/odata-common" "^2.8.0"
+    "@sap-cloud-sdk/odata-v2" "^2.8.0"
+    "@sap-cloud-sdk/odata-v4" "^2.8.0"
+    "@sap-cloud-sdk/util" "^2.8.0"
+    "@sap/edm-converters" "~1.0.42"
+    "@types/fs-extra" "^9.0.1"
+    "@types/glob" "^8.0.0"
+    fast-xml-parser "^4.0.10"
+    fs-extra "^10.0.0"
+    glob "^8.0.1"
+    ts-morph "^16.0.0"
+    typescript "~4.7.4"
+    voca "^1.4.0"
+    yargs "^17.0.1"
+
 "@sap/cds-compiler@^3.0.0":
   version "3.1.2"
   resolved "https://registry.npmjs.org/@sap/cds-compiler/-/cds-compiler-3.1.2.tgz#6024956ba9a26c4be06ea2a804c7c7ceb53ab164"

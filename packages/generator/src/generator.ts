@@ -291,6 +291,7 @@ export async function generateSourcesForService(
   }
 
   service.entities.forEach(entity => {
+    logger.info('(fixme)fwilhe: this is my wip code');
     logger.info(`Generating entity: ${entity.className}...`);
     sourceFile(
       serviceDir,

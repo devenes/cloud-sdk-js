@@ -114,18 +114,16 @@
             <Function Name="boundFunctionWithoutArguments" IsBound="true" IsComposable="false">
                 <Parameter Name="in" Type="TestService.TestEntity"/>
                 <ReturnType Type="Edm.String"/>
-              </Function>
-              <Action Name="deleteEntity" IsBound="true">
+            </Function>
+            <Action Name="deleteEntity" IsBound="true">
                 <Parameter Name="in" Type="TestService.TestEntity"/>
                 <ReturnType Type="Edm.Int32"/>
-              </Action>
-              <Action Name="boundActionWithoutArguments" IsBound="true">
+            </Action>
+            <Action Name="boundActionWithoutArguments" IsBound="true">
                 <Parameter Name="in" Type="TestService.TestEntity"/>
                 <ReturnType Type="Edm.String"/>
-              </Action>
-              <Function Name="returnSapCloudSdk" IsBound="false" IsComposable="false">
-                <ReturnType Type="Edm.String"/>
-              </Function>
+            </Action>
+            <!-- fixme(fwilhe) deleted duplicated function here -->
             <Action Name="deleteEntity" IsBound="true">
                 <Parameter Name="in" Type="TestService.TestEntity"/>
                 <ReturnType Type="Edm.Int32"/>

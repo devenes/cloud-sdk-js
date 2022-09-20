@@ -22,11 +22,13 @@
     "lint:fix": "set TIMING=1 && eslint --ext .ts . --fix --quiet && prettier . --config ../../.prettierrc --ignore-path ../../.prettierignore -w --loglevel error",
     "check:dependencies": "depcheck . --ignores='express,sqlite3,@sap/cds'",
     "__COMMENT": "is there an automated edmx generation somewhere already? Could not find it",
-    "edmx": "cds compile srv -s TestService -2 edmx > TestService.edmx"
+    "edmx": "cds compile srv -s TestService -2 edmx > my-spec/TestService.edmx",
+    "compile-generator": "pushd ../../packages/generator && yarn run compile && popd",
+    "generate": "generate-odata-client --inputDir my-spec --outputDir my-gen"
   },
   "devDependencies": {
     "@apidevtools/swagger-parser": "^10.0.2",
-    "@sap-cloud-sdk/generator": "^2.8.0",
+    "@sap-cloud-sdk/generator": "file:../../packages/generator/",
     "@sap-cloud-sdk/odata-common": "^2.8.0",
     "@sap-cloud-sdk/odata-v4": "^2.8.0",
     "@sap-cloud-sdk/connectivity": "^2.8.0",

@@ -1,5 +1,6 @@
 import {
   ClassDeclarationStructure,
+  MethodDeclarationStructure,
   PropertyDeclarationStructure,
   StructureKind
 } from 'ts-morph';
@@ -33,6 +34,9 @@ export function entityClass(
       ...staticProperties(entity, service),
       ...properties(entity),
       ...navProperties(entity, service)
+    ],
+    methods: [
+      ...boundFunctions(entity, service)
     ],
     isExported: true,
     docs: [addLeadingNewline(getEntityDescription(entity, service))]
@@ -84,6 +88,23 @@ function keys(entity: VdmEntity): PropertyDeclarationStructure {
 
 function properties(entity: VdmEntity): PropertyDeclarationStructure[] {
   return entity.properties.map(prop => property(prop));
+}
+
+function boundFunctions(entity: VdmEntity, service: VdmServiceMetadata): MethodDeclarationStructure[] {
+  console.log('myEntity', JSON.stringify(entity))
+  console.log('myService', JSON.stringify(service))
+  return [
+    {
+      kind: StructureKind.Method,
+      name: 'boundFunctionWithoutArguments',
+      returnType: 'string',
+      statements: [
+        {
+          kind:
+        }
+      ]
+    }
+  ];
 }
 
 function property(prop: VdmProperty): PropertyDeclarationStructure {
