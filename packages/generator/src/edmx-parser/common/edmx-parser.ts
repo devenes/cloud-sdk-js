@@ -28,10 +28,35 @@ export function parseEntityTypesBase(root: any): EdmxEntityTypeBase<any>[] {
     NavigationProperty: forceArray(e.NavigationProperty),
     Property: forceArray(e.Property),
     Namespace: e.Namespace,
-    BoundFunction: root[0]['Function']?.filter(f => f.IsBound === 'true'),
-    BoundAction: root[0]['Action']?.filter(a => a.IsBound === 'true')
+    BoundFunction: extractBoundFunctions(root),
+    BoundAction: extractBoundActions(root)
   }));
 }
+
+function extractBoundFunctions(root: any) {
+  const x = root[0];
+  if (!x) {
+    return [];
+  }
+  const y = root[0]['Function'];
+  if (!y) {
+    return [];
+  }
+  return y.filter(f => f.IsBound === 'true');
+}
+
+function extractBoundActions(root: any) {
+  const x = root[0];
+  if (!x) {
+    return [];
+  }
+  const y = root[0]['Action'];
+  if (!y) {
+    return [];
+  }
+  return y.filter(a => a.IsBound === 'true');
+}
+
 /**
  * @internal
  */

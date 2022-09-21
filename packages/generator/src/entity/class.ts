@@ -120,21 +120,37 @@ function property(prop: VdmProperty): PropertyDeclarationStructure {
   };
 }
 
-function boundFunction(fn: VdmFunctionImport): MethodDeclarationStructure {
+function boundFunction(fn: any): MethodDeclarationStructure {
+  let name
+  if(!fn.Name) {
+    if (!fn.name) {
+      throw new Error(`We don't have a name in ${JSON.stringify(fn)}`)
+    }
+    name = fn.name
+  }
+  name = fn.Name
   return {
     kind: StructureKind.Method,
-    name: fn.name,
-    returnType: 'string',// fn.returnType.returnType,
-    statements: []
+    name,
+    returnType: 'string', // fn.returnType.returnType,
+    statements: ["return 'abc';"]
   };
 }
 
-function boundAction(a: VdmActionImport): MethodDeclarationStructure {
+function boundAction(a: any): MethodDeclarationStructure {
+  let name
+  if(!a.Name) {
+    if (!a.name) {
+      throw new Error(`We don't have a name in ${JSON.stringify(a)}`)
+    }
+    name = a.name
+  }
+  name = a.Name
   return {
     kind: StructureKind.Method,
-    name: a.name,
-    returnType: 'string',// a.returnType.returnType,
-    statements: []
+    name,
+    returnType: 'string', // a.returnType.returnType,
+    statements: ["return 'abc';"]
   };
 }
 

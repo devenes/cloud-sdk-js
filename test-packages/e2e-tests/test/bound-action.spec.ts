@@ -14,6 +14,6 @@ describe('bound action', () => {
       .execute(destination);
 
     const actionResult = entity.boundActionWithoutArguments();
-    expect(actionResult.value).toBe('abc');
+    expect(actionResult).toBe('abc');
   });
 });

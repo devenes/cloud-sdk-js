@@ -280,6 +280,8 @@ export function createEntityType(
       Name: propName,
       Type: `namespace.${type}`
     })),
-    Namespace: namespace
+    Namespace: namespace,
+    BoundAction: [],
+    BoundFunction: []
   };
 }
