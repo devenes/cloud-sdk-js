@@ -108,28 +108,10 @@
                 <Parameter Name="in" Type="TestService.TestEntity"/>
                 <ReturnType Type="Edm.String"/>
             </Function>
-            <!-- FIXME(fwilhe): Manually generated edmx and copied in here.
-            I would expect this file to be automatically generated, but I'm not sure.
-            Discuss with the team. -->
-            <Function Name="boundFunctionWithoutArguments" IsBound="true" IsComposable="false">
-                <Parameter Name="in" Type="TestService.TestEntity"/>
-                <ReturnType Type="Edm.String"/>
-              </Function>
-              <Action Name="deleteEntity" IsBound="true">
+            <Action Name="deleteEntity" IsBound="true">
                 <Parameter Name="in" Type="TestService.TestEntity"/>
                 <ReturnType Type="Edm.Int32"/>
-              </Action>
-              <Action Name="boundActionWithoutArguments" IsBound="true">
-                <Parameter Name="in" Type="TestService.TestEntity"/>
-                <ReturnType Type="Edm.String"/>
-              </Action>
-              <Function Name="returnSapCloudSdk" IsBound="false" IsComposable="false">
-                <ReturnType Type="Edm.String"/>
-              </Function>
-            <!-- <Action Name="deleteEntity" IsBound="true">
-                <Parameter Name="in" Type="TestService.TestEntity"/>
-                <ReturnType Type="Edm.Int32"/>
-            </Action> -->
+            </Action>
             <Function Name="concatStrings" IsBound="false" IsComposable="false">
                 <Parameter Name="Str1" Type="Edm.String" Nullable="false"/>
                 <Parameter Name="Str2" Type="Edm.String" Nullable="false"/>
