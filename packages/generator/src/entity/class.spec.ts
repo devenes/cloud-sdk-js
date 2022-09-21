@@ -45,7 +45,11 @@ describe('entity class generator', () => {
 
     expect(classDeclaration.methods).toBeDefined();
     expect(classDeclaration.methods?.length).toEqual(2);
-    // expect(classDeclaration.methods?.filter(x => x.name === 'myFn').length).toEqual(1);
-    // expect(classDeclaration.methods?.filter(x => x.name === 'myAct').length).toEqual(1);
+    expect(
+      classDeclaration.methods?.filter(x => x.name === 'myFn').length
+    ).toEqual(1);
+    expect(
+      classDeclaration.methods?.filter(x => x.name === 'myAct').length
+    ).toEqual(1);
   });
 });

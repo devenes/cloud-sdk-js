@@ -34,6 +34,7 @@ export function parseEntityTypesBase(root: any): EdmxEntityTypeBase<any>[] {
 }
 
 function extractBoundFunctions(root: any) {
+  // fixme: root will have > 1 elements if the edmx files has multiple "schema" elements
   const x = root[0];
   if (!x) {
     return [];
