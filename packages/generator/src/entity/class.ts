@@ -122,14 +122,14 @@ function boundFunction(fn: any): MethodDeclarationStructure {
   let name = fn.Name;
   if (!fn.Name) {
     if (!fn.name) {
-      throw new Error(`We don't have a name in ${JSON.stringify(fn)}`);
+      throw new Error(`We don't have a name property in the function object ${JSON.stringify(fn)}`);
     }
     name = fn.name;
   }
   return {
     kind: StructureKind.Method,
     name,
-    returnType: 'string', // fn.returnType.returnType,
+    returnType: fn.returnType.returnType,
     statements: ["return 'abc';"]
   };
 }
@@ -138,14 +138,14 @@ function boundAction(a: any): MethodDeclarationStructure {
   let name = a.Name;
   if (!a.Name) {
     if (!a.name) {
-      throw new Error(`We don't have a name in ${JSON.stringify(a)}`);
+      throw new Error(`We don't have a name property in the function object ${JSON.stringify(a)}`);
     }
     name = a.name;
   }
   return {
     kind: StructureKind.Method,
     name,
-    returnType: 'string', // a.returnType.returnType,
+    returnType: a.returnType.returnType,
     statements: ["return 'abc';"]
   };
 }
