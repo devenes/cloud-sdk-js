@@ -12,7 +12,9 @@ import {
   addLeadingNewline
 } from '../typedoc';
 import {
+  VdmActionImport,
   VdmEntity,
+  VdmFunctionImport,
   VdmNavigationProperty,
   VdmProperty,
   VdmServiceMetadata
@@ -118,33 +120,19 @@ function property(prop: VdmProperty): PropertyDeclarationStructure {
   };
 }
 
-function boundFunction(fn: any): MethodDeclarationStructure {
-  let name = fn.Name;
-  if (!fn.Name) {
-    if (!fn.name) {
-      throw new Error(`We don't have a name property in the function object ${JSON.stringify(fn)}`);
-    }
-    name = fn.name;
-  }
+function boundFunction(fn: VdmFunctionImport): MethodDeclarationStructure {
   return {
     kind: StructureKind.Method,
-    name,
+    name: fn.name,
     returnType: fn.returnType.returnType,
     statements: ["return 'abc';"]
   };
 }
 
-function boundAction(a: any): MethodDeclarationStructure {
-  let name = a.Name;
-  if (!a.Name) {
-    if (!a.name) {
-      throw new Error(`We don't have a name property in the function object ${JSON.stringify(a)}`);
-    }
-    name = a.name;
-  }
+function boundAction(a: VdmActionImport): MethodDeclarationStructure {
   return {
     kind: StructureKind.Method,
-    name,
+    name: a.name,
     returnType: a.returnType.returnType,
     statements: ["return 'abc';"]
   };

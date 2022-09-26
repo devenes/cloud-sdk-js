@@ -104,6 +104,14 @@
                 <Property Name="DataTimeOffsetDataTimeProperty5" Type="Edm.DateTimeOffset"/>
                 <Property Name="DataTimeOffsetTimestampProperty5" Type="Edm.DateTimeOffset" Precision="7"/>
             </EntityType>
+            <Function Name="boundFunctionWithoutArguments" IsBound="true" IsComposable="false">
+                <Parameter Name="in" Type="TestService.TestEntity"/>
+                <ReturnType Type="Edm.String"/>
+            </Function>
+            <Action Name="boundActionWithoutArguments" IsBound="true">
+                <Parameter Name="in" Type="TestService.TestEntity"/>
+                <ReturnType Type="Edm.String"/>
+            </Action>
             <Function Name="getStringProperty" IsBound="true" IsComposable="false">
                 <Parameter Name="in" Type="TestService.TestEntity"/>
                 <ReturnType Type="Edm.String"/>

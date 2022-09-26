@@ -13,7 +13,9 @@ import {
   VdmNavigationProperty,
   VdmProperty,
   VdmMappedEdmType,
-  VdmEnumType
+  VdmEnumType,
+  VdmFunctionImport,
+  VdmActionImport
 } from '../../vdm-types';
 import { ServiceNameFormatter } from '../../service-name-formatter';
 import { applyPrefixOnJsConflictParam } from '../../name-formatting-strategies';
@@ -63,8 +65,8 @@ export function transformEntityBase(
     deletable: entityMetadata.entitySet
       ? isDeletable(entityMetadata.entitySet)
       : true,
-    boundFunctions: entityMetadata.entityType.BoundFunction,
-    boundActions: entityMetadata.entityType.BoundAction
+    boundFunctions: boundFunctions(entityMetadata),
+    boundActions: boundActions(entityMetadata)
   };
 
   return {
@@ -126,6 +128,24 @@ function properties(
       isCollection
     };
   });
+}
+
+function boundFunctions(entity: JoinedEntityMetadata<EdmxEntitySetBase, any>): VdmFunctionImport[] {
+  return entity.entityType.BoundFunction.map(f => ({
+      name: f.Name,
+      returnType: {
+        returnType: 'string' // fixme
+      }
+    }));
+}
+
+function boundActions(entity: JoinedEntityMetadata<EdmxEntitySetBase, any>): VdmActionImport[] {
+  return entity.entityType.BoundAction.map(a => ({
+    name: a.Name,
+    returnType: {
+      returnType: 'string' // fixme
+    }
+  }));
 }
 
 /**
