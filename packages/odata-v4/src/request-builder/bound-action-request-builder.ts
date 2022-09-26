@@ -19,7 +19,7 @@ export class BoundActionRequestBuilder<
 > {
   constructor(
     defaultServicePath: string,
-    functionImportName: string,
+    actionImportName: string,
     readonly responseTransformer: (data: any) => ReturnT,
     parameters: FunctionImportParameters<ParametersT>,
     deSerializers: DeSerializersT
@@ -29,7 +29,7 @@ export class BoundActionRequestBuilder<
       new OdataBoundActionRequestConfig(
         'post',
         defaultServicePath,
-        functionImportName,
+        actionImportName,
         parameters,
         createODataUri(deSerializers)
       )

@@ -138,7 +138,7 @@ function boundFunction(
     kind: StructureKind.Method,
     name: fn.name,
     returnType:
-      'BoundFunctionRequestBuilder<DeSerializersT, any, string | null>',
+      `BoundFunctionRequestBuilder<DeSerializersT, any, ${fn.returnType.returnType} | null>`,
     typeParameters: [
       {
         name: 'DeSerializersT extends DeSerializers = DefaultDeSerializers'
@@ -155,6 +155,7 @@ function boundFunctionsStatements(
 ): string[] {
   const statements: string[] = [
     'const params = {',
+    // todo: handle parameters
     '};',
     'const deSerializers = defaultDeSerializers as any',
     'return new BoundFunctionRequestBuilder(',
@@ -172,7 +173,7 @@ function boundAction(
   return {
     kind: StructureKind.Method,
     name: a.name,
-    returnType: 'BoundActionRequestBuilder<DeSerializersT, any, string | null>',
+    returnType: `BoundActionRequestBuilder<DeSerializersT, any, ${a.returnType.returnType} | null>`,
     typeParameters: [
       {
         name: 'DeSerializersT extends DeSerializers = DefaultDeSerializers'
@@ -189,9 +190,10 @@ function boundActionsStatements(
 ): string[] {
   const statements: string[] = [
     'const params = {',
+    // todo: handle parameters
     '};',
     'const deSerializers = defaultDeSerializers as any',
-    'return new BoundFunctionRequestBuilder(',
+    'return new BoundActionRequestBuilder(',
     `'${service.servicePath}', '${entity.className}(1)/${service.className}.${a.name}', (data) => data, params, deSerializers`,
     ');'
   ];
