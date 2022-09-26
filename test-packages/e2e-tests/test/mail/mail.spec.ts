@@ -32,22 +32,22 @@ describe('Mail', () => {
     ).toBe(true);
   }, 60000);
 
-  it('should send 100 mails', async () => {
-    const mailOptions = buildArrayWithNatualNums(100).map(
-      mailIndex =>
-        ({
-          ...defaultMailOptions,
-          subject: `mail ${mailIndex}`
-        } as MailConfig)
-    );
-    const responses = await sendTestMail(mailOptions);
+  // it('should send 100 mails', async () => {
+  //   const mailOptions = buildArrayWithNatualNums(100).map(
+  //     mailIndex =>
+  //       ({
+  //         ...defaultMailOptions,
+  //         subject: `mail ${mailIndex}`
+  //       } as MailConfig)
+  //   );
+  //   const responses = await sendTestMail(mailOptions);
 
-    expect(responses.length).toBeGreaterThan(99);
-    expect(responses[0].accepted?.length).toBe(2);
+  //   expect(responses.length).toBeGreaterThan(99);
+  //   expect(responses[0].accepted?.length).toBe(2);
 
-    const mails = fs.readdirSync(join(resolve('test'), 'mail', 'test-output'));
-    expect(mails.length).toBeGreaterThan(99);
-  }, 60000);
+  //   const mails = fs.readdirSync(join(resolve('test'), 'mail', 'test-output'));
+  //   expect(mails.length).toBeGreaterThan(99);
+  // }, 60000);
 });
 
 async function sendTestMail(
