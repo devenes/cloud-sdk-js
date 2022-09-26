@@ -17,7 +17,17 @@ export function entityImportDeclarations(
   if (oDataVersion === 'v4') {
     return [
       odataImportDeclaration(
-        ['Entity', 'DefaultDeSerializers', 'DeSerializers', 'DeserializedType', 'entityDeserializer', 'BoundActionRequestBuilder', 'transformReturnValueForComplexType', 'defaultDeSerializers', 'BoundFunctionRequestBuilder'],
+        [
+          'Entity',
+          'DefaultDeSerializers',
+          'DeSerializers',
+          'DeserializedType',
+          'entityDeserializer',
+          'BoundActionRequestBuilder',
+          'transformReturnValueForComplexType',
+          'defaultDeSerializers',
+          'BoundFunctionRequestBuilder'
+        ],
         oDataVersion
       ),
       ...complexTypeImportDeclarations(entity.properties),

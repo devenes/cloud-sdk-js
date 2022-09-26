@@ -3,7 +3,10 @@ import {
   FunctionImportParameters
 } from '@sap-cloud-sdk/odata-common/internal';
 import { DeSerializers } from '../de-serializers';
-import { OdataBoundFunctionRequestConfig, ODataFunctionImportRequestConfig } from '../request';
+import {
+  OdataBoundFunctionRequestConfig,
+  ODataFunctionImportRequestConfig
+} from '../request';
 import { createODataUri } from '../uri-conversion';
 
 export class BoundFunctionRequestBuilder<
@@ -21,6 +24,15 @@ export class BoundFunctionRequestBuilder<
     parameters: FunctionImportParameters<ParametersT>,
     deSerializers: DeSerializersT
   ) {
-    super(responseTransformer, new OdataBoundFunctionRequestConfig('get', defaultServicePath, functionImportName, parameters, createODataUri(deSerializers)));
+    super(
+      responseTransformer,
+      new OdataBoundFunctionRequestConfig(
+        'get',
+        defaultServicePath,
+        functionImportName,
+        parameters,
+        createODataUri(deSerializers)
+      )
+    );
   }
 }

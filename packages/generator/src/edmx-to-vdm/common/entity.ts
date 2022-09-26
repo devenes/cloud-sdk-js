@@ -130,16 +130,20 @@ function properties(
   });
 }
 
-function boundFunctions(entity: JoinedEntityMetadata<EdmxEntitySetBase, any>): VdmFunctionImport[] {
+function boundFunctions(
+  entity: JoinedEntityMetadata<EdmxEntitySetBase, any>
+): VdmFunctionImport[] {
   return entity.entityType.BoundFunction.map(f => ({
-      name: f.Name,
-      returnType: {
-        returnType: 'string' // fixme
-      }
-    }));
+    name: f.Name,
+    returnType: {
+      returnType: 'string' // fixme
+    }
+  }));
 }
 
-function boundActions(entity: JoinedEntityMetadata<EdmxEntitySetBase, any>): VdmActionImport[] {
+function boundActions(
+  entity: JoinedEntityMetadata<EdmxEntitySetBase, any>
+): VdmActionImport[] {
   return entity.entityType.BoundAction.map(a => ({
     name: a.Name,
     returnType: {

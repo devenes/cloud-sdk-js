@@ -37,7 +37,10 @@ export function entityClass(
       ...properties(entity),
       ...navProperties(entity, service)
     ],
-    methods: [...boundFunctions(entity, service), ...boundActions(entity, service)],
+    methods: [
+      ...boundFunctions(entity, service),
+      ...boundActions(entity, service)
+    ],
     isExported: true,
     docs: [addLeadingNewline(getEntityDescription(entity, service))]
   };
@@ -90,14 +93,20 @@ function properties(entity: VdmEntity): PropertyDeclarationStructure[] {
   return entity.properties.map(prop => property(prop));
 }
 
-function boundFunctions(entity: VdmEntity, service: VdmServiceMetadata): MethodDeclarationStructure[] {
+function boundFunctions(
+  entity: VdmEntity,
+  service: VdmServiceMetadata
+): MethodDeclarationStructure[] {
   if (entity.boundFunctions === undefined) {
     return [];
   }
   return entity.boundFunctions.map(f => boundFunction(f, entity, service));
 }
 
-function boundActions(entity: VdmEntity, service: VdmServiceMetadata): MethodDeclarationStructure[] {
+function boundActions(
+  entity: VdmEntity,
+  service: VdmServiceMetadata
+): MethodDeclarationStructure[] {
   if (entity.boundActions === undefined) {
     return [];
   }
@@ -120,11 +129,16 @@ function property(prop: VdmProperty): PropertyDeclarationStructure {
   };
 }
 
-function boundFunction(fn: VdmFunctionImport, entity: VdmEntity, service: VdmServiceMetadata): MethodDeclarationStructure {
+function boundFunction(
+  fn: VdmFunctionImport,
+  entity: VdmEntity,
+  service: VdmServiceMetadata
+): MethodDeclarationStructure {
   return {
     kind: StructureKind.Method,
     name: fn.name,
-    returnType: 'BoundFunctionRequestBuilder<DeSerializersT, any, string | null>',
+    returnType:
+      'BoundFunctionRequestBuilder<DeSerializersT, any, string | null>',
     typeParameters: [
       {
         name: 'DeSerializersT extends DeSerializers = DefaultDeSerializers'
@@ -134,7 +148,11 @@ function boundFunction(fn: VdmFunctionImport, entity: VdmEntity, service: VdmSer
   };
 }
 
-function boundFunctionsStatements(fn: VdmFunctionImport, entity: VdmEntity, service: VdmServiceMetadata): string[] {
+function boundFunctionsStatements(
+  fn: VdmFunctionImport,
+  entity: VdmEntity,
+  service: VdmServiceMetadata
+): string[] {
   const statements: string[] = [
     'const params = {',
     '};',
@@ -146,7 +164,11 @@ function boundFunctionsStatements(fn: VdmFunctionImport, entity: VdmEntity, serv
   return statements;
 }
 
-function boundAction(a: VdmActionImport, entity: VdmEntity, service: VdmServiceMetadata): MethodDeclarationStructure {
+function boundAction(
+  a: VdmActionImport,
+  entity: VdmEntity,
+  service: VdmServiceMetadata
+): MethodDeclarationStructure {
   return {
     kind: StructureKind.Method,
     name: a.name,
@@ -160,7 +182,11 @@ function boundAction(a: VdmActionImport, entity: VdmEntity, service: VdmServiceM
   };
 }
 
-function boundActionsStatements(a: VdmActionImport, entity: VdmEntity, service: VdmServiceMetadata): string[] {
+function boundActionsStatements(
+  a: VdmActionImport,
+  entity: VdmEntity,
+  service: VdmServiceMetadata
+): string[] {
   const statements: string[] = [
     'const params = {',
     '};',
