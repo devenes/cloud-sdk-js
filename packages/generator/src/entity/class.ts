@@ -144,6 +144,7 @@ function boundFunction(
         name: 'DeSerializersT extends DeSerializers = DefaultDeSerializers'
       }
     ],
+    parameters: [], //todo
     statements: boundFunctionsStatements(fn, entity, service)
   };
 }
@@ -153,16 +154,20 @@ function boundFunctionsStatements(
   entity: VdmEntity,
   service: VdmServiceMetadata
 ): string[] {
-  const statements: string[] = [
-    'const params = {',
-    // todo: handle parameters
-    '};',
+  const statements: string[] = boundFunctionsParameterStatements(fn).concat([
     'const deSerializers = defaultDeSerializers as any',
     'return new BoundFunctionRequestBuilder(',
     `'${service.servicePath}', '${entity.className}(1)/${service.className}.${fn.name}', (data) => data, params, deSerializers`,
     ');'
-  ];
+  ]);
   return statements;
+}
+
+function boundFunctionsParameterStatements(fn: VdmFunctionImport): string[] {
+  return ['const params = {'].concat(
+    fn.parameters?.map(p => `${p.parameterName}: new FunctionImportParameter('${p.parameterName}', '${p.edmType}', parameters.${p.parameterName}),`),
+    ['};']
+  );
 }
 
 function boundAction(
