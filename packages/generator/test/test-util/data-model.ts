@@ -92,13 +92,13 @@ const myFunction: VdmFunctionImport = {
   originalName: 'myFn',
   parameters: [
     {
-      originalName: "FirstParameter",
-      parameterName: "FirstParameter",
+      originalName: 'FirstParameter',
+      parameterName: 'FirstParameter',
       nullable: false,
-      description: "My Parameter",
-      jsType: "string",
-      fieldType: "string",
-      edmType: "Edm.String"
+      description: 'My Parameter',
+      jsType: 'string',
+      fieldType: 'string',
+      edmType: 'Edm.String'
     }
   ],
   parametersTypeName: '',

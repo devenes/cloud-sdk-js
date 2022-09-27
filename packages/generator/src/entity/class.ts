@@ -138,8 +138,7 @@ function boundFunction(
   return {
     kind: StructureKind.Method,
     name: fn.name,
-    returnType:
-      `BoundFunctionRequestBuilder<DeSerializersT, any, ${fn.returnType.returnType} | null>`,
+    returnType: `BoundFunctionRequestBuilder<DeSerializersT, any, ${fn.returnType.returnType} | null>`,
     typeParameters: [
       {
         name: 'DeSerializersT extends DeSerializers = DefaultDeSerializers'
@@ -150,18 +149,17 @@ function boundFunction(
   };
 }
 
-function boundFunctionsParameter(fn: VdmFunctionImport): ParameterDeclarationStructure[] {
+function boundFunctionsParameter(
+  fn: VdmFunctionImport
+): ParameterDeclarationStructure[] {
   if (!fn.parameters) {
-    console.error(`empty param for function ${fn.name}`, JSON.stringify(fn)) //fixme for debug
-    return []
+    return [];
   }
-  return fn.parameters.map(p => {
-    return {
-      name: p.parameterName,
-      type: p.jsType,
-      kind: StructureKind.Parameter
-    }
-  })
+  return fn.parameters.map(p => ({
+    name: p.parameterName,
+    type: p.jsType,
+    kind: StructureKind.Parameter
+  }));
 }
 
 function boundFunctionsStatements(
@@ -180,7 +178,10 @@ function boundFunctionsStatements(
 
 function boundFunctionsParameterStatements(fn: VdmFunctionImport): string[] {
   return ['const params = {'].concat(
-    fn.parameters?.map(p => `${p.parameterName}: new FunctionImportParameter('${p.parameterName}', '${p.edmType}', ${p.parameterName}),`),
+    fn.parameters?.map(
+      p =>
+        `${p.parameterName}: new FunctionImportParameter('${p.parameterName}', '${p.edmType}', ${p.parameterName}),`
+    ),
     ['};']
   );
 }
