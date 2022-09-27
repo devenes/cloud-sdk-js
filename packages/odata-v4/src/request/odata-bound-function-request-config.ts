@@ -2,7 +2,8 @@ import {
   ODataUri,
   FunctionImportParameters,
   ODataFunctionImportRequestConfig as ODataFunctionImportRequestConfigBase,
-  RequestMethodType
+  RequestMethodType,
+  FunctionImportParameter
 } from '@sap-cloud-sdk/odata-common/internal';
 import { DeSerializers } from '../de-serializers';
 
@@ -34,7 +35,15 @@ export class OdataBoundFunctionRequestConfig<
   }
 
   resourcePath(): string {
-    return `${this.functionImportName}()`;
+    return `${this.functionImportName}(${Object.values(this.parameters)
+      .map(
+        (parameter: FunctionImportParameter<ParametersT>) =>
+          `${parameter.originalName}=${this.oDataUri.convertToUriFormat(
+            parameter.value,
+            parameter.edmType
+          )}`
+      )
+      .join(',')})`;
   }
 
   queryParameters(): Record<string, any> {

@@ -27,7 +27,8 @@ export function entityImportDeclarations(
           'transformReturnValueForComplexType',
           'defaultDeSerializers',
           'BoundFunctionRequestBuilder',
-          'FunctionImportParameter'
+          'FunctionImportParameter',
+          'ActionImportParameter'
         ],
         oDataVersion
       ),

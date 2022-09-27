@@ -170,6 +170,8 @@ function boundFunctionsStatements(
   const statements: string[] = boundFunctionsParameterStatements(fn).concat([
     'const deSerializers = defaultDeSerializers as any',
     'return new BoundFunctionRequestBuilder(',
+    // fixme: we can't hardcode the id (1) here, but where to get it from?
+    // fixme: do we need to do anything in the transformer function?
     `'${service.servicePath}', '${entity.className}(1)/${service.className}.${fn.name}', (data) => data, params, deSerializers`,
     ');'
   ]);
@@ -200,8 +202,22 @@ function boundAction(
         name: 'DeSerializersT extends DeSerializers = DefaultDeSerializers'
       }
     ],
+    parameters: boundActionsParameter(a),
     statements: boundActionsStatements(a, entity, service)
   };
+}
+
+function boundActionsParameter(
+  a: VdmActionImport
+): ParameterDeclarationStructure[] {
+  if (!a.parameters) {
+    return [];
+  }
+  return a.parameters.map(p => ({
+    name: p.parameterName,
+    type: p.jsType,
+    kind: StructureKind.Parameter
+  }));
 }
 
 function boundActionsStatements(
@@ -209,16 +225,25 @@ function boundActionsStatements(
   entity: VdmEntity,
   service: VdmServiceMetadata
 ): string[] {
-  const statements: string[] = [
-    'const params = {',
-    // todo: handle parameters
-    '};',
+  const statements: string[] = boundActionsParameterStatements(a).concat([
     'const deSerializers = defaultDeSerializers as any',
     'return new BoundActionRequestBuilder(',
+    // fixme: we can't hardcode the id (1) here, but where to get it from?
+    // fixme: do we need to do anything in the transformer function?
     `'${service.servicePath}', '${entity.className}(1)/${service.className}.${a.name}', (data) => data, params, deSerializers`,
     ');'
-  ];
+  ]);
   return statements;
+}
+
+function boundActionsParameterStatements(a: VdmActionImport): string[] {
+  return ['const params = {'].concat(
+    a.parameters?.map(
+      p =>
+        `${p.parameterName}: new ActionImportParameter('${p.parameterName}', '${p.edmType}', ${p.parameterName}),`
+    ),
+    ['};']
+  );
 }
 
 /**

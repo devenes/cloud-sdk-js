@@ -1,43 +1,59 @@
 import {
-  ODataUri,
-  FunctionImportParameters,
-  ODataFunctionImportRequestConfig as ODataFunctionImportRequestConfigBase,
-  RequestMethodType
+  ODataRequestConfig,
+  ODataUri
 } from '@sap-cloud-sdk/odata-common/internal';
 import { DeSerializers } from '../de-serializers';
+import {
+  ActionImportParameters,
+  ActionImportParameter
+} from './action-import-parameter';
 
 /**
- * Function import request configuration for an entity type.
+ * Action import request configuration for an entity type.
  * @typeParam DeSerializersT - Type of the deserializer use on the request
  * @typeParam ParametersT - Type of the parameter to setup a request with
  */
-export class OdataBoundActionRequestConfig<
+export class ODataBoundActionImportRequestConfig<
   DeSerializersT extends DeSerializers,
   ParametersT
-> extends ODataFunctionImportRequestConfigBase<DeSerializersT, ParametersT> {
+> extends ODataRequestConfig {
   /**
-   * Creates an instance of ODataFunctionImportRequestConfig.
-   * @param method - HTTP method for the request.
+   * Creates an instance of ODataActionImportRequestConfig.
    * @param defaultServicePath - Default path of the service.
-   * @param functionImportName - The name of the function import.
-   * @param parameters - Object containing the parameters with a value and additional meta information.
+   * @param actionImportName - The name of the action import.
+   * @param parameters - Parameters of the action imports.
    * @param oDataUri - URI conversion functions.
    */
   constructor(
-    method: RequestMethodType,
     defaultServicePath: string,
-    functionImportName: string,
-    parameters: FunctionImportParameters<ParametersT>,
-    oDataUri: ODataUri<DeSerializersT>
+    readonly actionImportName: string,
+    public parameters: ActionImportParameters<ParametersT>,
+    protected oDataUri: ODataUri<DeSerializersT>
   ) {
-    super(method, defaultServicePath, functionImportName, parameters, oDataUri);
+    super('post', defaultServicePath);
+    this.payload = this.buildHttpPayload(parameters);
   }
 
   resourcePath(): string {
-    return `${this.functionImportName}`;
+    return this.actionImportName;
   }
 
   queryParameters(): Record<string, any> {
     return {};
+  }
+
+  private buildHttpPayload(
+    parameters: ActionImportParameters<ParametersT>
+  ): Record<string, any> {
+    const payload = Object.keys(parameters).reduce((all, key) => {
+      const payloadElement: ActionImportParameter<ParametersT> =
+        parameters[key];
+      if (typeof payloadElement.value !== 'undefined') {
+        all[payloadElement.originalName] = payloadElement.value;
+      }
+      return all;
+    }, {});
+
+    return payload;
   }
 }
