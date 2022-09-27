@@ -90,7 +90,17 @@ const myFunction: VdmFunctionImport = {
   httpMethod: 'GET',
   returnType: myReturnType,
   originalName: 'myFn',
-  parameters: [],
+  parameters: [
+    {
+      originalName: "FirstParameter",
+      parameterName: "FirstParameter",
+      nullable: false,
+      description: "My Parameter",
+      jsType: "string",
+      fieldType: "string",
+      edmType: "Edm.String"
+    }
+  ],
   parametersTypeName: '',
   name: 'myFn',
   description: ''

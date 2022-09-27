@@ -1,6 +1,7 @@
 import {
   edmToFieldType,
   edmToTsType,
+  forceArray,
   getFallbackEdmTypeIfNeeded,
   isCreatable,
   isDeletable,
@@ -133,10 +134,17 @@ function properties(
 function boundFunctions(
   entity: JoinedEntityMetadata<EdmxEntitySetBase, any>
 ): VdmFunctionImport[] {
+  console.error(JSON.stringify(entity.entityType.BoundFunction))
   return entity.entityType.BoundFunction.map(f => ({
     name: f.Name,
+    // Remove first parameter which per spec always is the entity the function is bound to
+    parameters: forceArray(f.Parameter).slice(1).map(p => ({
+      parameterName: p.Name,
+      jsType: edmToTsType(p.Type),
+      edmType: p.Type
+    })),
     returnType: {
-      returnType: 'string' // fixme
+      returnType: 'string' // edmToTsType(f.ReturnType.Type) // fixme: what about complex types?
     }
   }));
 }

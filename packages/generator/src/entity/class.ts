@@ -1,6 +1,7 @@
 import {
   ClassDeclarationStructure,
   MethodDeclarationStructure,
+  ParameterDeclarationStructure,
   PropertyDeclarationStructure,
   StructureKind
 } from 'ts-morph';
@@ -144,9 +145,23 @@ function boundFunction(
         name: 'DeSerializersT extends DeSerializers = DefaultDeSerializers'
       }
     ],
-    parameters: [], //todo
+    parameters: boundFunctionsParameter(fn),
     statements: boundFunctionsStatements(fn, entity, service)
   };
+}
+
+function boundFunctionsParameter(fn: VdmFunctionImport): ParameterDeclarationStructure[] {
+  if (!fn.parameters) {
+    console.error(`empty param for function ${fn.name}`, JSON.stringify(fn)) //fixme for debug
+    return []
+  }
+  return fn.parameters.map(p => {
+    return {
+      name: p.parameterName,
+      type: p.jsType,
+      kind: StructureKind.Parameter
+    }
+  })
 }
 
 function boundFunctionsStatements(
@@ -165,7 +180,7 @@ function boundFunctionsStatements(
 
 function boundFunctionsParameterStatements(fn: VdmFunctionImport): string[] {
   return ['const params = {'].concat(
-    fn.parameters?.map(p => `${p.parameterName}: new FunctionImportParameter('${p.parameterName}', '${p.edmType}', parameters.${p.parameterName}),`),
+    fn.parameters?.map(p => `${p.parameterName}: new FunctionImportParameter('${p.parameterName}', '${p.edmType}', ${p.parameterName}),`),
     ['};']
   );
 }

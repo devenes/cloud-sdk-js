@@ -45,9 +45,25 @@ describe('entity class generator', () => {
 
     expect(classDeclaration.methods).toBeDefined();
     expect(classDeclaration.methods?.length).toEqual(2);
-    expect(
-      classDeclaration.methods?.filter(x => x.name === 'myFn').length
-    ).toEqual(1);
+    const functions = classDeclaration.methods?.filter(x => x.name === 'myFn')
+    expect(functions).toBeDefined()
+    expect(functions?.length).toBe(1)
+    if (functions) {
+      const myFn = functions[0]
+      expect(myFn).toBeDefined();
+      expect(myFn.parameters?.length).toBe(1)
+      if (myFn.parameters) {
+        expect(myFn.parameters[0].name).toEqual('FirstParameter')
+        if (myFn.statements) {
+          expect(myFn.statements.toString().indexOf('FirstParameter') > 0).toBeTruthy()
+        }
+      } else {
+        fail(new Error('Expected parameters to be defined'))
+      }
+    } else {
+      fail(new Error("Expected functions to be defined"))
+    }
+
     expect(
       classDeclaration.methods?.filter(x => x.name === 'myAct').length
     ).toEqual(1);
