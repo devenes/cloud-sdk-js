@@ -131,7 +131,10 @@ function properties(
   });
 }
 
-function boundFunctions(
+/**
+ * @internal
+ */
+export function boundFunctions(
   entity: JoinedEntityMetadata<EdmxEntitySetBase, any>
 ): VdmFunctionImport[] {
   return entity.entityType.BoundFunction.map(f => ({
@@ -146,7 +149,7 @@ function boundFunctions(
         edmType: p.Type
       })),
     returnType: {
-      returnType: 'string' // edmToTsType(f.ReturnType.Type) // fixme: what about complex types?
+      returnType: 'string' // f.ReturnType.Type // 'string' // edmToTsType(f.ReturnType.Type) // fixme: what about complex types?
     }
   }));
 }
