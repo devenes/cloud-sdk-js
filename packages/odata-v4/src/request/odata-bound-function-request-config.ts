@@ -43,6 +43,7 @@ export class OdataBoundFunctionRequestConfig<
   }
 
   resourcePath(): string {
+    // fixme(fwilhe): properly construct key (note they can have multiple parts)
     return `${this.entitySetName}(1)/${this.serviceClassName}.${this.functionImportName}(${Object.values(this.parameters)
       .map(
         (parameter: FunctionImportParameter<ParametersT>) =>
