@@ -17,6 +17,7 @@ export class BoundActionRequestBuilder<
   constructor(
     defaultServicePath: string,
     entitySetName: string,
+    entityQueryString: string,
     serviceClassName: string,
     actionImportName: string,
     readonly responseTransformer: (data: any) => ReturnT,
@@ -28,6 +29,7 @@ export class BoundActionRequestBuilder<
       new ODataBoundActionImportRequestConfig(
         defaultServicePath,
         entitySetName,
+        entityQueryString,
         serviceClassName,
         actionImportName,
         parameters,

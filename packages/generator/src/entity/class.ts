@@ -33,6 +33,7 @@ export function entityClass(
     name: `${entity.className}<T extends DeSerializers = DefaultDeSerializers>`,
     extends: 'Entity',
     implements: [`${entity.className}Type<T>`],
+    //fixme add index signature:   [key: string]: any;
     properties: [
       ...staticProperties(entity, service),
       ...properties(entity),
@@ -169,10 +170,11 @@ function boundFunctionsStatements(
 ): string[] {
   const statements: string[] = boundFunctionsParameterStatements(fn).concat([
     'const deSerializers = defaultDeSerializers as any',
+    `const entityQueryString = ${entity.entitySetName}._keys.map(key => key + '=' + this[key]).join(',')`, //fixme camel case
     'return new BoundFunctionRequestBuilder(',
     // fixme: we can't hardcode the id (1) here, but where to get it from?
     // fixme: do we need to do anything in the transformer function?
-    `'${service.servicePath}', '${entity.entitySetName}', '${service.className}', '${fn.name}', (data) => data, params, deSerializers`,
+    `'${service.servicePath}', '${entity.entitySetName}', entityQueryString, '${service.className}', '${fn.name}', (data) => data, params, deSerializers`,
     ');'
   ]);
   return statements;
@@ -227,10 +229,11 @@ function boundActionsStatements(
 ): string[] {
   const statements: string[] = boundActionsParameterStatements(a).concat([
     'const deSerializers = defaultDeSerializers as any',
+    `const entityQueryString = ${entity.entitySetName}._keys.map(key => key + '=' + this[key]).join(',')`, //fixme camel case
     'return new BoundActionRequestBuilder(',
     // fixme: we can't hardcode the id (1) here, but where to get it from?
     // fixme: do we need to do anything in the transformer function?
-    `'${service.servicePath}', '${entity.entitySetName}', '${service.className}' ,'${a.name}', (data) => data, params, deSerializers`,
+    `'${service.servicePath}', '${entity.entitySetName}', entityQueryString, '${service.className}' ,'${a.name}', (data) => data, params, deSerializers`,
     ');'
   ]);
   return statements;

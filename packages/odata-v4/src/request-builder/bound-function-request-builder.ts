@@ -20,6 +20,7 @@ export class BoundFunctionRequestBuilder<
   constructor(
     defaultServicePath: string,
     entitySetName: string,
+    entityQueryString: string,
     serviceClassName: string,
     functionImportName: string,
     readonly responseTransformer: (data: any) => ReturnT,
@@ -32,6 +33,7 @@ export class BoundFunctionRequestBuilder<
         'get',
         defaultServicePath,
         entitySetName,
+        entityQueryString,
         serviceClassName,
         functionImportName,
         parameters,

@@ -19,11 +19,13 @@ export class ODataBoundActionImportRequestConfig<
 > extends ODataRequestConfig {
   entitySetName: string;
   serviceClassName: string;
+  entityQueryString: string;
   /**
    * Creates an instance of ODataActionImportRequestConfig.
    * @param defaultServicePath - Default path of the service.
    * @param entitySetName - The name of the entity set.
    * @param serviceClassName - The name of the service class.
+   * @param entityQueryString - The string to query the instance of the entity this function is bound to.
    * @param actionImportName - The name of the action import.
    * @param parameters - Parameters of the action imports.
    * @param oDataUri - URI conversion functions.
@@ -31,6 +33,7 @@ export class ODataBoundActionImportRequestConfig<
   constructor(
     defaultServicePath: string,
     entitySetName: string,
+    entityQueryString: string,
     serviceClassName: string,
     readonly actionImportName: string,
     public parameters: ActionImportParameters<ParametersT>,
@@ -39,12 +42,13 @@ export class ODataBoundActionImportRequestConfig<
     super('post', defaultServicePath);
     this.entitySetName = entitySetName;
     this.serviceClassName = serviceClassName;
+    this.entityQueryString = entityQueryString;
     this.payload = this.buildHttpPayload(parameters);
   }
 
   resourcePath(): string {
     // fixme(fwilhe): properly construct key (note they can have multiple parts)
-    return `${this.entitySetName}(1)/${this.serviceClassName}.${this.actionImportName}`;
+    return `${this.entitySetName}(${this.entityQueryString})/${this.serviceClassName}.${this.actionImportName}`;
   }
 
   queryParameters(): Record<string, any> {
