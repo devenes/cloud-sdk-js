@@ -1,6 +1,4 @@
-import {
-  ActionFunctionImportRequestBuilderBase
-} from '@sap-cloud-sdk/odata-common/internal';
+import { ActionFunctionImportRequestBuilderBase } from '@sap-cloud-sdk/odata-common/internal';
 import { DeSerializers } from '../de-serializers';
 import {
   ODataBoundActionImportRequestConfig,
