@@ -137,6 +137,7 @@ function boundFunctions(
   return entity.entityType.BoundFunction.map(f => ({
     name: f.Name,
     // Remove first parameter which per spec always is the entity the function is bound to
+    // cf https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/os/odata-csdl-xml-v4.01-os.html#sec_Parameter
     parameters: forceArray(f.Parameter)
       .slice(1)
       .map(p => ({
@@ -156,6 +157,7 @@ function boundActions(
   return entity.entityType.BoundAction.map(a => ({
     name: a.Name,
     // Remove first parameter which per spec always is the entity the function is bound to
+    // cf https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/os/odata-csdl-xml-v4.01-os.html#sec_Parameter
     parameters: forceArray(a.Parameter)
       .slice(1)
       .map(p => ({
