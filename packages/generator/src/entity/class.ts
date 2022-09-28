@@ -172,7 +172,7 @@ function boundFunctionsStatements(
     'return new BoundFunctionRequestBuilder(',
     // fixme: we can't hardcode the id (1) here, but where to get it from?
     // fixme: do we need to do anything in the transformer function?
-    `'${service.servicePath}', '${entity.entitySetName}(1)/${service.className}.${fn.name}', (data) => data, params, deSerializers`,
+    `'${service.servicePath}', '${entity.entitySetName}', '${service.className}', '${fn.name}', (data) => data, params, deSerializers`,
     ');'
   ]);
   return statements;
@@ -230,7 +230,7 @@ function boundActionsStatements(
     'return new BoundActionRequestBuilder(',
     // fixme: we can't hardcode the id (1) here, but where to get it from?
     // fixme: do we need to do anything in the transformer function?
-    `'${service.servicePath}', '${entity.entitySetName}(1)/${service.className}.${a.name}', (data) => data, params, deSerializers`,
+    `'${service.servicePath}', '${entity.entitySetName}', '${service.className}' ,'${a.name}', (data) => data, params, deSerializers`,
     ');'
   ]);
   return statements;

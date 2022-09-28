@@ -19,6 +19,8 @@ export class BoundFunctionRequestBuilder<
 > {
   constructor(
     defaultServicePath: string,
+    entitySetName: string,
+    serviceClassName: string,
     functionImportName: string,
     readonly responseTransformer: (data: any) => ReturnT,
     parameters: FunctionImportParameters<ParametersT>,
@@ -29,6 +31,8 @@ export class BoundFunctionRequestBuilder<
       new OdataBoundFunctionRequestConfig(
         'get',
         defaultServicePath,
+        entitySetName,
+        serviceClassName,
         functionImportName,
         parameters,
         createODataUri(deSerializers)

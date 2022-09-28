@@ -16,6 +16,8 @@ export class BoundActionRequestBuilder<
 > {
   constructor(
     defaultServicePath: string,
+    entitySetName: string,
+    serviceClassName: string,
     actionImportName: string,
     readonly responseTransformer: (data: any) => ReturnT,
     parameters: ActionImportParameters<ParametersT>,
@@ -25,6 +27,8 @@ export class BoundActionRequestBuilder<
       responseTransformer,
       new ODataBoundActionImportRequestConfig(
         defaultServicePath,
+        entitySetName,
+        serviceClassName,
         actionImportName,
         parameters,
         createODataUri(deSerializers)

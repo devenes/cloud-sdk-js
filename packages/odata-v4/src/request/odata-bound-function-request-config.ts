@@ -16,10 +16,14 @@ export class OdataBoundFunctionRequestConfig<
   DeSerializersT extends DeSerializers,
   ParametersT
 > extends ODataFunctionImportRequestConfigBase<DeSerializersT, ParametersT> {
+  entitySetName: string;
+  serviceClassName: string;
   /**
    * Creates an instance of ODataFunctionImportRequestConfig.
    * @param method - HTTP method for the request.
    * @param defaultServicePath - Default path of the service.
+   * @param entitySetName - The name of the entity set.
+   * @param serviceClassName - The name of the service class.
    * @param functionImportName - The name of the function import.
    * @param parameters - Object containing the parameters with a value and additional meta information.
    * @param oDataUri - URI conversion functions.
@@ -27,15 +31,19 @@ export class OdataBoundFunctionRequestConfig<
   constructor(
     method: RequestMethodType,
     defaultServicePath: string,
+    entitySetName: string,
+    serviceClassName: string,
     functionImportName: string,
     parameters: FunctionImportParameters<ParametersT>,
     oDataUri: ODataUri<DeSerializersT>
   ) {
     super(method, defaultServicePath, functionImportName, parameters, oDataUri);
+    this.entitySetName = entitySetName;
+    this.serviceClassName = serviceClassName;
   }
 
   resourcePath(): string {
-    return `${this.functionImportName}(${Object.values(this.parameters)
+    return `${this.entitySetName}(1)/${this.serviceClassName}.${this.functionImportName}(${Object.values(this.parameters)
       .map(
         (parameter: FunctionImportParameter<ParametersT>) =>
           `${parameter.originalName}=${this.oDataUri.convertToUriFormat(

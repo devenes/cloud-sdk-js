@@ -17,25 +17,33 @@ export class ODataBoundActionImportRequestConfig<
   DeSerializersT extends DeSerializers,
   ParametersT
 > extends ODataRequestConfig {
+  entitySetName: string;
+  serviceClassName: string;
   /**
    * Creates an instance of ODataActionImportRequestConfig.
    * @param defaultServicePath - Default path of the service.
+   * @param entitySetName - The name of the entity set.
+   * @param serviceClassName - The name of the service class.
    * @param actionImportName - The name of the action import.
    * @param parameters - Parameters of the action imports.
    * @param oDataUri - URI conversion functions.
    */
   constructor(
     defaultServicePath: string,
+    entitySetName: string,
+    serviceClassName: string,
     readonly actionImportName: string,
     public parameters: ActionImportParameters<ParametersT>,
     protected oDataUri: ODataUri<DeSerializersT>
   ) {
     super('post', defaultServicePath);
+    this.entitySetName = entitySetName;
+    this.serviceClassName = serviceClassName;
     this.payload = this.buildHttpPayload(parameters);
   }
 
   resourcePath(): string {
-    return this.actionImportName;
+    return `${this.entitySetName}(1)/${this.serviceClassName}.${this.actionImportName}`;
   }
 
   queryParameters(): Record<string, any> {
