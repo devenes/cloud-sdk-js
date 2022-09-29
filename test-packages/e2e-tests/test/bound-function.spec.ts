@@ -1,3 +1,4 @@
+import { TestEntity } from '@sap-cloud-sdk/test-services-e2e/v4/test-service';
 import { getByKey } from '@sap-cloud-sdk/test-services-e2e/v4/test-service/function-imports';
 
 const url = 'http://localhost:4004/';
@@ -9,10 +10,20 @@ describe('bound functions', () => {
       param: 101
     });
 
-    it('should execute request', async () => {
-      const entity = await request.execute(destination);
-      // const functionResult = entity.boundFunctionWithoutArguments();
-      // expect(functionResult).toEqual('abc');
+    it('bound function returns expected string', async () => {
+      // http://localhost:4004/odata/test-service/TestEntity(KeyTestEntity=1)/TestService.boundFunctionWithoutArguments()
+      const expected = { '@odata.context': '../$metadata#Edm.String', 'value': 'xyz' };
+      const entity: TestEntity = await request.execute(destination);
+      const functionResult = await entity.boundFunctionWithoutArguments().execute(destination);
+      expect(functionResult).toEqual(expected);
+    });
+
+    it('bound function returns expected complex result object', async () => {
+      // http://localhost:4004/odata/test-service/TestEntity(KeyTestEntity=1)/TestService.boundFunctionWithoutArgumentsComplexReturnType()
+      const expected = { '@odata.context': '../$metadata#Edm.String', 'value': 'xyz' };
+      const entity: TestEntity = await request.execute(destination);
+      const functionResult = await entity.boundFunctionWithoutArgumentsComplexReturnType().execute(destination);
+      expect(functionResult).toEqual(expected);
     });
   });
 });
