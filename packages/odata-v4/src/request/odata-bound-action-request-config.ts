@@ -24,8 +24,8 @@ export class ODataBoundActionImportRequestConfig<
    * Creates an instance of ODataActionImportRequestConfig.
    * @param defaultServicePath - Default path of the service.
    * @param entitySetName - The name of the entity set.
+   * @param entityQueryString - The string to query the instance of the entity this action is bound to.
    * @param serviceClassName - The name of the service class.
-   * @param entityQueryString - The string to query the instance of the entity this function is bound to.
    * @param actionImportName - The name of the action import.
    * @param parameters - Parameters of the action imports.
    * @param oDataUri - URI conversion functions.

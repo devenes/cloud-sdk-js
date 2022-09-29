@@ -47,7 +47,9 @@ export class OdataBoundFunctionRequestConfig<
   }
 
   resourcePath(): string {
-    return `${this.entitySetName}(${this.entityQueryString})/${this.serviceClassName}.${this.functionImportName}(${Object.values(this.parameters)
+    return `${this.entitySetName}(${this.entityQueryString})/${
+      this.serviceClassName
+    }.${this.functionImportName}(${Object.values(this.parameters)
       .map(
         (parameter: FunctionImportParameter<ParametersT>) =>
           `${parameter.originalName}=${this.oDataUri.convertToUriFormat(

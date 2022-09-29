@@ -16,6 +16,12 @@ export function entitySourceFile(
     statements: [
       ...entityImportDeclarations(entity, service.oDataVersion),
       ...otherEntityImports(entity, service),
+      {
+        // This import is required for accessing key properties
+        kind: StructureKind.ImportDeclaration,
+        moduleSpecifier: '@sap-cloud-sdk/util',
+        namedImports: ['camelCase']
+      },
       entityClass(entity, service),
       entityTypeInterface(entity, service)
     ]
