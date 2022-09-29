@@ -12,17 +12,27 @@ describe('bound functions', () => {
 
     it('bound function returns expected string', async () => {
       // http://localhost:4004/odata/test-service/TestEntity(KeyTestEntity=1)/TestService.boundFunctionWithoutArguments()
-      const expected = { '@odata.context': '../$metadata#Edm.String', 'value': 'xyz' };
+      const expected = {
+        '@odata.context': '../$metadata#Edm.String',
+        value: 'xyz'
+      };
       const entity: TestEntity = await request.execute(destination);
-      const functionResult = await entity.boundFunctionWithoutArguments().execute(destination);
+      const functionResult = await entity
+        .boundFunctionWithoutArguments()
+        .execute(destination);
       expect(functionResult).toEqual(expected);
     });
 
     it('bound function returns expected complex result object', async () => {
       // http://localhost:4004/odata/test-service/TestEntity(KeyTestEntity=1)/TestService.boundFunctionWithoutArgumentsComplexReturnType()
-      const expected = { '@odata.context': '../$metadata#Edm.String', 'value': 'xyz' };
+      const expected = {
+        '@odata.context': '../$metadata#Edm.String',
+        value: 'xyz'
+      };
       const entity: TestEntity = await request.execute(destination);
-      const functionResult = await entity.boundFunctionWithoutArgumentsComplexReturnType().execute(destination);
+      const functionResult = await entity
+        .boundFunctionWithoutArgumentsComplexReturnType()
+        .execute(destination);
       expect(functionResult).toEqual(expected);
     });
   });
