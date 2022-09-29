@@ -11,6 +11,7 @@ import {
   parseFunctionImportsV4,
   parseFunctions
 } from '../v4';
+import { EdmxFunction } from '../v4/edm-types';
 import { oDataServiceSpecs } from '../../../../../test-resources/odata-service-specs';
 
 describe('edmx-edmx-parser', () => {
@@ -85,16 +86,10 @@ describe('edmx-edmx-parser', () => {
     parseEntityType(metadataEdmx.root).forEach(e => {
       expect(e.BoundFunction).toBeDefined();
       expect(e.BoundAction).toBeDefined();
-      expect(e.BoundFunction.length).toEqual(1);
-      expect(e.BoundAction.length).toEqual(1);
-
-      const fn = e.BoundFunction[0];
-      expect(fn.Name).toEqual('boundFunctionWithoutArguments');
-      expect(fn.IsBound).toEqual('true');
-
-      const act = e.BoundAction[0];
-      expect(act.Name).toEqual('boundActionWithoutArguments');
-      expect(act.IsBound).toEqual('true');
+      expect(e.BoundFunction.length).toEqual(5);
+      expect(e.BoundAction.length).toEqual(2);
+      expect(e.BoundFunction.every(f => f.IsBound)).toBeTruthy();
+      expect(e.BoundAction.every(a => a.IsBound)).toBeTruthy();
     });
   });
 });

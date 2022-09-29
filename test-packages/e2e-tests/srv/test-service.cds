@@ -2,11 +2,22 @@ using { cloudsdk.test as cloudsdk } from '../db/schema';
 
 @path : 'test-service'
 service TestService {
+  type TestParameterType {
+    someMessage: String;
+    someId: Integer
+  }
+  type TestResultType {
+    someMessage: String;
+    someId: Integer
+  }
   entity TestEntity as projection on cloudsdk.TestEntity
     actions {
       function getStringProperty() returns String;
 
       function boundFunctionWithoutArguments() returns String;
+      function boundFunctionWithArguments(param1:String, param2:String) returns String;
+      function boundFunctionWithoutArgumentsComplexReturnType() returns TestResultType;
+      function boundFunctionWithComplexArgumentsComplexReturnType(param1:TestParameterType, param2:TestParameterType) returns TestResultType;
 
       action deleteEntity() returns Integer;
 

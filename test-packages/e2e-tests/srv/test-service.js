@@ -20,6 +20,24 @@ module.exports = async srv => {
     oRequest.reply('xyz');
   });
 
+  srv.on('boundFunctionWithArguments', 'TestEntity', async oRequest => {
+    oRequest.reply('xyz' + oRequest.data.param1 + oRequest.data.param2);
+  });
+
+  srv.on('boundFunctionWithoutArgumentsComplexReturnType', 'TestEntity', async oRequest => {
+    oRequest.reply({
+      someMessage: 'xyz',
+      someId: 42
+    });
+  });
+
+  srv.on('boundFunctionWithComplexArgumentsComplexReturnType', 'TestEntity', async oRequest => {
+    oRequest.reply({
+      someMessage: 'xyz' + oRequest.data.param1 + oRequest.data.param2,
+      someId: 42
+    });
+  });
+
   // bound action
   srv.on('deleteEntity', 'TestEntity', async oRequest => {
     const entity = await cds
