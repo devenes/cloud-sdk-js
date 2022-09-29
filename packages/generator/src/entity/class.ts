@@ -168,8 +168,8 @@ function boundFunctionsStatements(
   service: VdmServiceMetadata
 ): string[] {
   const statements: string[] = boundFunctionsParameterStatements(fn).concat([
-    'const deSerializers = defaultDeSerializers as any',
-    `const entityQueryString = ${entity.entitySetName}._keys.map(key => key + '=' + this[camelCase(key) as keyof ${entity.entitySetName}]).join(',')`,
+    'const deSerializers = defaultDeSerializers as any;',
+    `const entityQueryString = ${entity.className}._keys.map(key => key + '=' + this[camelCase(key) as keyof ${entity.className}]).join(',');`,
     'return new BoundFunctionRequestBuilder(',
     // fixme: do we need to do anything in the transformer function?
     `'${service.servicePath}', '${entity.entitySetName}', entityQueryString, '${service.className}', '${fn.name}', (data) => data, params, deSerializers`,
@@ -226,8 +226,8 @@ function boundActionsStatements(
   service: VdmServiceMetadata
 ): string[] {
   const statements: string[] = boundActionsParameterStatements(a).concat([
-    'const deSerializers = defaultDeSerializers as any',
-    `const entityQueryString = ${entity.entitySetName}._keys.map(key => key + '=' + this[camelCase(key) as keyof ${entity.entitySetName}]).join(',')`,
+    'const deSerializers = defaultDeSerializers as any;',
+    `const entityQueryString = ${entity.className}._keys.map(key => key + '=' + this[camelCase(key) as keyof ${entity.className}]).join(',');`,
     'return new BoundActionRequestBuilder(',
     // fixme: do we need to do anything in the transformer function?
     `'${service.servicePath}', '${entity.entitySetName}', entityQueryString, '${service.className}' ,'${a.name}', (data) => data, params, deSerializers`,
