@@ -11,7 +11,6 @@ import {
   parseFunctionImportsV4,
   parseFunctions
 } from '../v4';
-import { EdmxFunction } from '../v4/edm-types';
 import { oDataServiceSpecs } from '../../../../../test-resources/odata-service-specs';
 
 describe('edmx-edmx-parser', () => {

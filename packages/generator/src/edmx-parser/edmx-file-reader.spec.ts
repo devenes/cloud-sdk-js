@@ -39,18 +39,20 @@ describe('edmx-file-reader', () => {
     const parsedFunctions = parseFunctions(metadataEdmx.root);
     // expect(parsedFunctions.length).toBe(2); fixme
 
-    const parsedBoundFunctions = parsedFunctions.filter(f => f.Name.startsWith('bound'));
+    const parsedBoundFunctions = parsedFunctions.filter(f =>
+      f.Name.startsWith('bound')
+    );
     expect(parsedBoundFunctions.length).toBe(4);
     expect(parsedBoundFunctions.every(f => f.IsBound)).toBeTruthy();
 
     const parsedActions = parseActions(metadataEdmx.root);
     expect(parsedActions.length).toBe(5);
 
-    const parsedBoundActions = parsedActions.filter(f => f.Name.startsWith('bound'));
+    const parsedBoundActions = parsedActions.filter(f =>
+      f.Name.startsWith('bound')
+    );
     expect(parsedBoundActions.length).toBe(1);
     expect(parsedBoundActions.every(f => f.IsBound)).toBeTruthy();
-
-
   });
 
   it('v4: parses edmx file that contains multiple schemas to JSON and coerces properties to arrays', () => {
