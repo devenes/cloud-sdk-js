@@ -1,8 +1,13 @@
 import fs from 'fs';
 import { join, resolve } from 'path';
+import * as fsExtra from 'fs-extra';
 import { MailConfig, MailResponse, sendMail } from '@sap-cloud-sdk/mail-client';
 
 describe('Mail', () => {
+  beforeEach(async () => {
+    fsExtra.emptyDirSync(join(resolve('test'), 'mail', 'test-output'));
+  });
+
   const defaultMailOptions: MailConfig = {
     from: '"FROM" <from@example.com>',
     to: 'TO1@example.com, TO2@example.com',
@@ -32,22 +37,22 @@ describe('Mail', () => {
     ).toBe(true);
   }, 60000);
 
-  // it('should send 100 mails', async () => {
-  //   const mailOptions = buildArrayWithNatualNums(100).map(
-  //     mailIndex =>
-  //       ({
-  //         ...defaultMailOptions,
-  //         subject: `mail ${mailIndex}`
-  //       } as MailConfig)
-  //   );
-  //   const responses = await sendTestMail(mailOptions);
+  it('should send 10 mails', async () => {
+    const mailOptions = buildArrayWithNatualNums(10).map(
+      mailIndex =>
+        ({
+          ...defaultMailOptions,
+          subject: `mail ${mailIndex}`
+        } as MailConfig)
+    );
+    const responses = await sendTestMail(mailOptions);
 
-  //   expect(responses.length).toBeGreaterThan(99);
-  //   expect(responses[0].accepted?.length).toBe(2);
+    expect(responses.length).toBeGreaterThan(9);
+    expect(responses[0].accepted?.length).toBe(2);
 
-  //   const mails = fs.readdirSync(join(resolve('test'), 'mail', 'test-output'));
-  //   expect(mails.length).toBeGreaterThan(99);
-  // }, 60000);
+    const mails = fs.readdirSync(join(resolve('test'), 'mail', 'test-output'));
+    expect(mails.length).toBeGreaterThan(9);
+  }, 60000);
 });
 
 async function sendTestMail(
