@@ -7,10 +7,18 @@ import {
   Entity,
   DefaultDeSerializers,
   DeSerializers,
-  DeserializedType
+  DeserializedType,
+  entityDeserializer,
+  BoundActionRequestBuilder,
+  transformReturnValueForComplexType,
+  defaultDeSerializers,
+  BoundFunctionRequestBuilder,
+  FunctionImportParameter,
+  ActionImportParameter
 } from '@sap-cloud-sdk/odata-v4';
 import { TestComplexType1, TestComplexType1Field } from './TestComplexType1';
 import { TestEnumType1 } from './TestEnumType1';
+import { camelCase } from '@sap-cloud-sdk/util';
 
 /**
  * This class represents the entity "A_TestEntity1" of service "API_MULTIPLE_SCHEMAS_SRV".

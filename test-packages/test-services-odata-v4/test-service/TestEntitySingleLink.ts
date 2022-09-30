@@ -7,7 +7,14 @@ import {
   Entity,
   DefaultDeSerializers,
   DeSerializers,
-  DeserializedType
+  DeserializedType,
+  entityDeserializer,
+  BoundActionRequestBuilder,
+  transformReturnValueForComplexType,
+  defaultDeSerializers,
+  BoundFunctionRequestBuilder,
+  FunctionImportParameter,
+  ActionImportParameter
 } from '@sap-cloud-sdk/odata-v4';
 import {
   TestEntityLvl2MultiLink,
@@ -17,6 +24,7 @@ import {
   TestEntityLvl2SingleLink,
   TestEntityLvl2SingleLinkType
 } from './TestEntityLvl2SingleLink';
+import { camelCase } from '@sap-cloud-sdk/util';
 
 /**
  * This class represents the entity "A_TestEntitySingleLink" of service "API_TEST_SRV".

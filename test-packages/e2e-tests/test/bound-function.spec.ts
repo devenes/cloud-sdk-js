@@ -22,18 +22,5 @@ describe('bound functions', () => {
         .execute(destination);
       expect(functionResult).toEqual(expected);
     });
-
-    it('bound function returns expected complex result object', async () => {
-      // http://localhost:4004/odata/test-service/TestEntity(KeyTestEntity=1)/TestService.boundFunctionWithoutArgumentsComplexReturnType()
-      const expected = {
-        '@odata.context': '../$metadata#Edm.String',
-        value: 'xyz'
-      };
-      const entity: TestEntity = await request.execute(destination);
-      const functionResult = await entity
-        .boundFunctionWithoutArgumentsComplexReturnType()
-        .execute(destination);
-      expect(functionResult).toEqual(expected);
-    });
   });
 });

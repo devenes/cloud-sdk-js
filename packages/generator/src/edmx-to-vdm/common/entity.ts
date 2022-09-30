@@ -148,9 +148,7 @@ export function boundFunctions(
         jsType: edmToTsType(p.Type),
         edmType: p.Type
       })),
-    returnType: {
-      returnType: 'string' // f.ReturnType.Type // 'string' // edmToTsType(f.ReturnType.Type) // fixme: what about complex types?
-    }
+      returnType: f.ReturnType.Type // edmToTsType(f.ReturnType.Type)
   }));
 }
 
@@ -168,9 +166,7 @@ function boundActions(
         jsType: edmToTsType(p.Type),
         edmType: p.Type
       })),
-    returnType: {
-      returnType: 'string' // edmToTsType(f.ReturnType.Type) // fixme: what about complex types?
-    }
+    returnType: a.ReturnType.Type // edmToTsType(a.ReturnType.Type)
   }));
 }
 

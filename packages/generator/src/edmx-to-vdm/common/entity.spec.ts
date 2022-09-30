@@ -45,21 +45,6 @@ describe('entity parser', () => {
         ReturnType: {
           Type: 'string'
         }
-      },
-      {
-        Name: 'FunctionWithComplexTypes',
-        Parameter: [
-          {
-            Name: 'the entity'
-          },
-          {
-            Name: 'Bar',
-            Type: 'TestService.TestEntity'
-          }
-        ],
-        ReturnType: {
-          Type: 'TestService.TestEntity'
-        }
       }
     ],
     BoundAction: []
@@ -73,7 +58,5 @@ describe('entity parser', () => {
     const vdmFunctions = boundFunctions(testEntity);
     expect(vdmFunctions[0].parameters[0].jsType).toEqual('string');
     expect(vdmFunctions[0].returnType).toEqual('string');
-    expect(vdmFunctions[1].parameters[0].jsType).toEqual('TestEntity');
-    expect(vdmFunctions[1].returnType).toEqual('TestEntity');
   });
 });

@@ -12,7 +12,8 @@ describe('file', () => {
 
     expect(imports.map(i => i.moduleSpecifier)).toEqual([
       '@sap-cloud-sdk/odata-v2',
-      './Brunch'
+      './Brunch',
+      '@sap-cloud-sdk/util',
     ]);
 
     const entities = (actual.statements as any[]).filter(

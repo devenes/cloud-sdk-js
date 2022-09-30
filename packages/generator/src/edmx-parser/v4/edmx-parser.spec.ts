@@ -85,7 +85,7 @@ describe('edmx-edmx-parser', () => {
     parseEntityType(metadataEdmx.root).forEach(e => {
       expect(e.BoundFunction).toBeDefined();
       expect(e.BoundAction).toBeDefined();
-      expect(e.BoundFunction.length).toEqual(5);
+      expect(e.BoundFunction.length).toEqual(3);
       expect(e.BoundAction.length).toEqual(2);
       expect(e.BoundFunction.every(f => f.IsBound)).toBeTruthy();
       expect(e.BoundAction.every(a => a.IsBound)).toBeTruthy();

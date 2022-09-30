@@ -10,11 +10,12 @@ describe('bound action', () => {
   afterEach(async () => deleteEntity(entityKey, destination));
 
   it('should be able to call simple bound action', async () => {
+    const expected = { '@odata.context': '../$metadata#Edm.String', 'value': 'abc' };
     const entity: TestEntity = await createTestEntityById({ id: entityKey })
       .skipCsrfTokenFetching()
       .execute(destination);
 
-    const actionResult = entity.boundActionWithoutArguments();
-    expect(actionResult).toBe('abc');
+    const actionResult = await entity.boundActionWithoutArguments().execute(destination);
+    expect(actionResult).toEqual(expected);
   });
 });

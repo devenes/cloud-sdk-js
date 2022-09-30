@@ -42,7 +42,7 @@ describe('edmx-file-reader', () => {
     const parsedBoundFunctions = parsedFunctions.filter(f =>
       f.Name.startsWith('bound')
     );
-    expect(parsedBoundFunctions.length).toBe(4);
+    expect(parsedBoundFunctions.length).toBe(2);
     expect(parsedBoundFunctions.every(f => f.IsBound)).toBeTruthy();
 
     const parsedActions = parseActions(metadataEdmx.root);

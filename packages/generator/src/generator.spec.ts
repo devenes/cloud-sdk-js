@@ -154,7 +154,8 @@ describe('generator', () => {
         './TestEnumTypeInt64',
         './TestEnumTypeWithOneMember',
         './TestEntityMultiLink',
-        './TestEntitySingleLink'
+        './TestEntitySingleLink',
+        '@sap-cloud-sdk/util',
       ]);
 
       const entityClass = testEntityFile!.getClass('TestEntity');
