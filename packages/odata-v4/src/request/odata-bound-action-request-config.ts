@@ -47,7 +47,6 @@ export class ODataBoundActionImportRequestConfig<
   }
 
   resourcePath(): string {
-    // fixme(fwilhe): properly construct key (note they can have multiple parts)
     return `${this.entitySetName}(${this.entityQueryString})/${this.serviceClassName}.${this.actionImportName}`;
   }
 

@@ -27,8 +27,7 @@ describe('functions', () => {
     const request = getAll({});
 
     it('should execute request', async () => {
-      // fixme
-      // expect((await request.execute(destination)).length).toBe(5);
+      expect((await request.execute(destination)).length).toBe(4);
     });
   });
 
