@@ -2,7 +2,9 @@ import {
   Entity,
   DefaultDeSerializers,
   DeSerializers,
-  DeserializedType
+  DeserializedType,
+  BoundActionRequestBuilder,
+  BoundFunctionRequestBuilder
 } from '@sap-cloud-sdk/odata-v4';
 import { Location } from './Location';
 import { PersonGender } from './PersonGender';
@@ -65,6 +67,19 @@ export declare class People<T extends DeSerializers = DefaultDeSerializers>
    * One-to-one navigation property to the {@link Photos} entity.
    */
   photo?: Photos<T> | null;
+  GetFavoriteAirline<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null>;
+  GetInvolvedPeople<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null>;
+  GetFriendsTrips<DeSerializersT extends DeSerializers = DefaultDeSerializers>(
+    userName: string
+  ): BoundFunctionRequestBuilder<DeSerializersT, any, string | null>;
+  ShareTrip<DeSerializersT extends DeSerializers = DefaultDeSerializers>(
+    userName: string,
+    tripId: number
+  ): BoundActionRequestBuilder<DeSerializersT, any, string | null>;
 }
 export interface PeopleType<T extends DeSerializers = DefaultDeSerializers> {
   userName: DeserializedType<T, 'Edm.String'>;

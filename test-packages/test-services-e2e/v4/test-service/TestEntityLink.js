@@ -7,10 +7,80 @@ exports.TestEntityLink = void 0;
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
 const odata_v4_1 = require('@sap-cloud-sdk/odata-v4');
+const util_1 = require('@sap-cloud-sdk/util');
 /**
  * This class represents the entity "TestEntityLink" of service "TestService".
  */
-class TestEntityLink extends odata_v4_1.Entity {}
+class TestEntityLink extends odata_v4_1.Entity {
+  boundFunctionWithoutArguments() {
+    const params = {};
+    const deSerializers = odata_v4_1.defaultDeSerializers;
+    const entityQueryString = TestEntityLink._keys
+      .map(key => key + '=' + this[(0, util_1.camelCase)(key)])
+      .join(',');
+    return new odata_v4_1.BoundFunctionRequestBuilder(
+      '/odata/test-service',
+      'TestEntityLink',
+      entityQueryString,
+      'TestService',
+      'boundFunctionWithoutArguments',
+      data => data,
+      params,
+      deSerializers
+    );
+  }
+  getStringProperty() {
+    const params = {};
+    const deSerializers = odata_v4_1.defaultDeSerializers;
+    const entityQueryString = TestEntityLink._keys
+      .map(key => key + '=' + this[(0, util_1.camelCase)(key)])
+      .join(',');
+    return new odata_v4_1.BoundFunctionRequestBuilder(
+      '/odata/test-service',
+      'TestEntityLink',
+      entityQueryString,
+      'TestService',
+      'getStringProperty',
+      data => data,
+      params,
+      deSerializers
+    );
+  }
+  boundActionWithoutArguments() {
+    const params = {};
+    const deSerializers = odata_v4_1.defaultDeSerializers;
+    const entityQueryString = TestEntityLink._keys
+      .map(key => key + '=' + this[(0, util_1.camelCase)(key)])
+      .join(',');
+    return new odata_v4_1.BoundActionRequestBuilder(
+      '/odata/test-service',
+      'TestEntityLink',
+      entityQueryString,
+      'TestService',
+      'boundActionWithoutArguments',
+      data => data,
+      params,
+      deSerializers
+    );
+  }
+  deleteEntity() {
+    const params = {};
+    const deSerializers = odata_v4_1.defaultDeSerializers;
+    const entityQueryString = TestEntityLink._keys
+      .map(key => key + '=' + this[(0, util_1.camelCase)(key)])
+      .join(',');
+    return new odata_v4_1.BoundActionRequestBuilder(
+      '/odata/test-service',
+      'TestEntityLink',
+      entityQueryString,
+      'TestService',
+      'deleteEntity',
+      data => data,
+      params,
+      deSerializers
+    );
+  }
+}
 exports.TestEntityLink = TestEntityLink;
 /**
  * Technical entity name for TestEntityLink.

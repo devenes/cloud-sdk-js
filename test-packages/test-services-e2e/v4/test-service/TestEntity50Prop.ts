@@ -7,8 +7,16 @@ import {
   Entity,
   DefaultDeSerializers,
   DeSerializers,
-  DeserializedType
+  DeserializedType,
+  entityDeserializer,
+  BoundActionRequestBuilder,
+  transformReturnValueForComplexType,
+  defaultDeSerializers,
+  BoundFunctionRequestBuilder,
+  FunctionImportParameter,
+  ActionImportParameter
 } from '@sap-cloud-sdk/odata-v4';
+import { camelCase } from '@sap-cloud-sdk/util';
 
 /**
  * This class represents the entity "TestEntity50Prop" of service "TestService".
@@ -318,6 +326,86 @@ export class TestEntity50Prop<T extends DeSerializers = DefaultDeSerializers>
     T,
     'Edm.DateTimeOffset'
   > | null;
+
+  boundFunctionWithoutArguments<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null> {
+    const params = {};
+    const deSerializers = defaultDeSerializers as any;
+    const entityQueryString = TestEntity50Prop._keys
+      .map(key => key + '=' + this[camelCase(key) as keyof TestEntity50Prop])
+      .join(',');
+    return new BoundFunctionRequestBuilder(
+      '/odata/test-service',
+      'TestEntity50Prop',
+      entityQueryString,
+      'TestService',
+      'boundFunctionWithoutArguments',
+      data => data,
+      params,
+      deSerializers
+    );
+  }
+
+  getStringProperty<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null> {
+    const params = {};
+    const deSerializers = defaultDeSerializers as any;
+    const entityQueryString = TestEntity50Prop._keys
+      .map(key => key + '=' + this[camelCase(key) as keyof TestEntity50Prop])
+      .join(',');
+    return new BoundFunctionRequestBuilder(
+      '/odata/test-service',
+      'TestEntity50Prop',
+      entityQueryString,
+      'TestService',
+      'getStringProperty',
+      data => data,
+      params,
+      deSerializers
+    );
+  }
+
+  boundActionWithoutArguments<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundActionRequestBuilder<DeSerializersT, any, string | null> {
+    const params = {};
+    const deSerializers = defaultDeSerializers as any;
+    const entityQueryString = TestEntity50Prop._keys
+      .map(key => key + '=' + this[camelCase(key) as keyof TestEntity50Prop])
+      .join(',');
+    return new BoundActionRequestBuilder(
+      '/odata/test-service',
+      'TestEntity50Prop',
+      entityQueryString,
+      'TestService',
+      'boundActionWithoutArguments',
+      data => data,
+      params,
+      deSerializers
+    );
+  }
+
+  deleteEntity<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundActionRequestBuilder<DeSerializersT, any, string | null> {
+    const params = {};
+    const deSerializers = defaultDeSerializers as any;
+    const entityQueryString = TestEntity50Prop._keys
+      .map(key => key + '=' + this[camelCase(key) as keyof TestEntity50Prop])
+      .join(',');
+    return new BoundActionRequestBuilder(
+      '/odata/test-service',
+      'TestEntity50Prop',
+      entityQueryString,
+      'TestService',
+      'deleteEntity',
+      data => data,
+      params,
+      deSerializers
+    );
+  }
 }
 
 export interface TestEntity50PropType<

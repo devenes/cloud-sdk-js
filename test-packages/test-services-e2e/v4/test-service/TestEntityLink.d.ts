@@ -2,7 +2,9 @@ import {
   Entity,
   DefaultDeSerializers,
   DeSerializers,
-  DeserializedType
+  DeserializedType,
+  BoundActionRequestBuilder,
+  BoundFunctionRequestBuilder
 } from '@sap-cloud-sdk/odata-v4';
 /**
  * This class represents the entity "TestEntityLink" of service "TestService".
@@ -39,6 +41,18 @@ export declare class TestEntityLink<
    * @nullable
    */
   stringProperty?: DeserializedType<T, 'Edm.String'> | null;
+  boundFunctionWithoutArguments<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null>;
+  getStringProperty<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null>;
+  boundActionWithoutArguments<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundActionRequestBuilder<DeSerializersT, any, string | null>;
+  deleteEntity<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundActionRequestBuilder<DeSerializersT, any, string | null>;
 }
 export interface TestEntityLinkType<
   T extends DeSerializers = DefaultDeSerializers

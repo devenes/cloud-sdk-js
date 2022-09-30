@@ -2,7 +2,9 @@ import {
   Entity,
   DefaultDeSerializers,
   DeSerializers,
-  DeserializedType
+  DeserializedType,
+  BoundActionRequestBuilder,
+  BoundFunctionRequestBuilder
 } from '@sap-cloud-sdk/odata-v4';
 import { TestEntityLink, TestEntityLinkType } from './TestEntityLink';
 /**
@@ -89,6 +91,18 @@ export declare class TestEntity<T extends DeSerializers = DefaultDeSerializers>
    * One-to-many navigation property to the {@link TestEntityLink} entity.
    */
   toMultiLink: TestEntityLink<T>[];
+  boundFunctionWithoutArguments<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null>;
+  getStringProperty<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null>;
+  boundActionWithoutArguments<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundActionRequestBuilder<DeSerializersT, any, string | null>;
+  deleteEntity<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundActionRequestBuilder<DeSerializersT, any, string | null>;
 }
 export interface TestEntityType<
   T extends DeSerializers = DefaultDeSerializers

@@ -7,9 +7,17 @@ import {
   Entity,
   DefaultDeSerializers,
   DeSerializers,
-  DeserializedType
+  DeserializedType,
+  entityDeserializer,
+  BoundActionRequestBuilder,
+  transformReturnValueForComplexType,
+  defaultDeSerializers,
+  BoundFunctionRequestBuilder,
+  FunctionImportParameter,
+  ActionImportParameter
 } from '@sap-cloud-sdk/odata-v4';
 import { TestEntityLink, TestEntityLinkType } from './TestEntityLink';
+import { camelCase } from '@sap-cloud-sdk/util';
 
 /**
  * This class represents the entity "TestEntity" of service "TestService".
@@ -95,6 +103,86 @@ export class TestEntity<T extends DeSerializers = DefaultDeSerializers>
    * One-to-many navigation property to the {@link TestEntityLink} entity.
    */
   toMultiLink!: TestEntityLink<T>[];
+
+  boundFunctionWithoutArguments<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null> {
+    const params = {};
+    const deSerializers = defaultDeSerializers as any;
+    const entityQueryString = TestEntity._keys
+      .map(key => key + '=' + this[camelCase(key) as keyof TestEntity])
+      .join(',');
+    return new BoundFunctionRequestBuilder(
+      '/odata/test-service',
+      'TestEntity',
+      entityQueryString,
+      'TestService',
+      'boundFunctionWithoutArguments',
+      data => data,
+      params,
+      deSerializers
+    );
+  }
+
+  getStringProperty<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null> {
+    const params = {};
+    const deSerializers = defaultDeSerializers as any;
+    const entityQueryString = TestEntity._keys
+      .map(key => key + '=' + this[camelCase(key) as keyof TestEntity])
+      .join(',');
+    return new BoundFunctionRequestBuilder(
+      '/odata/test-service',
+      'TestEntity',
+      entityQueryString,
+      'TestService',
+      'getStringProperty',
+      data => data,
+      params,
+      deSerializers
+    );
+  }
+
+  boundActionWithoutArguments<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundActionRequestBuilder<DeSerializersT, any, string | null> {
+    const params = {};
+    const deSerializers = defaultDeSerializers as any;
+    const entityQueryString = TestEntity._keys
+      .map(key => key + '=' + this[camelCase(key) as keyof TestEntity])
+      .join(',');
+    return new BoundActionRequestBuilder(
+      '/odata/test-service',
+      'TestEntity',
+      entityQueryString,
+      'TestService',
+      'boundActionWithoutArguments',
+      data => data,
+      params,
+      deSerializers
+    );
+  }
+
+  deleteEntity<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundActionRequestBuilder<DeSerializersT, any, string | null> {
+    const params = {};
+    const deSerializers = defaultDeSerializers as any;
+    const entityQueryString = TestEntity._keys
+      .map(key => key + '=' + this[camelCase(key) as keyof TestEntity])
+      .join(',');
+    return new BoundActionRequestBuilder(
+      '/odata/test-service',
+      'TestEntity',
+      entityQueryString,
+      'TestService',
+      'deleteEntity',
+      data => data,
+      params,
+      deSerializers
+    );
+  }
 }
 
 export interface TestEntityType<
