@@ -35,7 +35,7 @@ export function parseEntityTypesBase(root: any): EdmxEntityTypeBase<any>[] {
 
 function extractBoundFunctions(root: any) {
   // fixme: root will have > 1 elements if the edmx files has multiple "schema" elements
-  // fixme: this is v4 specific and should not be in common
+  // fixme: this is v4 specific and should not be in common, what about the v2 workaround which emulates bound fn?
   const x = root[0];
   if (!x) {
     return [];

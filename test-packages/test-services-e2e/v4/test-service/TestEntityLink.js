@@ -29,6 +29,51 @@ class TestEntityLink extends odata_v4_1.Entity {
       deSerializers
     );
   }
+  boundFunctionWithoutArgumentsWithMultipleKeys() {
+    const params = {};
+    const deSerializers = odata_v4_1.defaultDeSerializers;
+    const entityQueryString = TestEntityLink._keys
+      .map(key => key + '=' + this[(0, util_1.camelCase)(key)])
+      .join(',');
+    return new odata_v4_1.BoundFunctionRequestBuilder(
+      '/odata/test-service',
+      'TestEntityLink',
+      entityQueryString,
+      'TestService',
+      'boundFunctionWithoutArgumentsWithMultipleKeys',
+      data => data,
+      params,
+      deSerializers
+    );
+  }
+  boundFunctionWithArgumentsWithMultipleKeys(param1, param2) {
+    const params = {
+      param1: new odata_v4_1.FunctionImportParameter(
+        'param1',
+        'Edm.String',
+        param1
+      ),
+      param2: new odata_v4_1.FunctionImportParameter(
+        'param2',
+        'Edm.String',
+        param2
+      )
+    };
+    const deSerializers = odata_v4_1.defaultDeSerializers;
+    const entityQueryString = TestEntityLink._keys
+      .map(key => key + '=' + this[(0, util_1.camelCase)(key)])
+      .join(',');
+    return new odata_v4_1.BoundFunctionRequestBuilder(
+      '/odata/test-service',
+      'TestEntityLink',
+      entityQueryString,
+      'TestService',
+      'boundFunctionWithArgumentsWithMultipleKeys',
+      data => data,
+      params,
+      deSerializers
+    );
+  }
   getStringProperty() {
     const params = {};
     const deSerializers = odata_v4_1.defaultDeSerializers;

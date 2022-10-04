@@ -93,16 +93,25 @@ export declare class TestEntity<T extends DeSerializers = DefaultDeSerializers>
   toMultiLink: TestEntityLink<T>[];
   boundFunctionWithoutArguments<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null>;
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null>;
+  boundFunctionWithoutArgumentsWithMultipleKeys<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null>;
+  boundFunctionWithArgumentsWithMultipleKeys<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(
+    param1: string,
+    param2: string
+  ): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null>;
   getStringProperty<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null>;
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null>;
   boundActionWithoutArguments<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundActionRequestBuilder<DeSerializersT, any, string | null>;
+  >(): BoundActionRequestBuilder<DeSerializersT, any, undefined | null>;
   deleteEntity<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundActionRequestBuilder<DeSerializersT, any, string | null>;
+  >(): BoundActionRequestBuilder<DeSerializersT, any, undefined | null>;
 }
 export interface TestEntityType<
   T extends DeSerializers = DefaultDeSerializers

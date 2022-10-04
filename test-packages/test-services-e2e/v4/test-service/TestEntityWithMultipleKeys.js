@@ -1,6 +1,6 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
-exports.TestEntity = void 0;
+exports.TestEntityWithMultipleKeys = void 0;
 /*
  * Copyright (c) 2022 SAP SE or an SAP affiliate company. All rights reserved.
  *
@@ -9,18 +9,18 @@ exports.TestEntity = void 0;
 const odata_v4_1 = require('@sap-cloud-sdk/odata-v4');
 const util_1 = require('@sap-cloud-sdk/util');
 /**
- * This class represents the entity "TestEntity" of service "TestService".
+ * This class represents the entity "TestEntityWithMultipleKeys" of service "TestService".
  */
-class TestEntity extends odata_v4_1.Entity {
+class TestEntityWithMultipleKeys extends odata_v4_1.Entity {
   boundFunctionWithoutArguments() {
     const params = {};
     const deSerializers = odata_v4_1.defaultDeSerializers;
-    const entityQueryString = TestEntity._keys
+    const entityQueryString = TestEntityWithMultipleKeys._keys
       .map(key => key + '=' + this[(0, util_1.camelCase)(key)])
       .join(',');
     return new odata_v4_1.BoundFunctionRequestBuilder(
       '/odata/test-service',
-      'TestEntity',
+      'TestEntityWithMultipleKeys',
       entityQueryString,
       'TestService',
       'boundFunctionWithoutArguments',
@@ -32,12 +32,12 @@ class TestEntity extends odata_v4_1.Entity {
   boundFunctionWithoutArgumentsWithMultipleKeys() {
     const params = {};
     const deSerializers = odata_v4_1.defaultDeSerializers;
-    const entityQueryString = TestEntity._keys
+    const entityQueryString = TestEntityWithMultipleKeys._keys
       .map(key => key + '=' + this[(0, util_1.camelCase)(key)])
       .join(',');
     return new odata_v4_1.BoundFunctionRequestBuilder(
       '/odata/test-service',
-      'TestEntity',
+      'TestEntityWithMultipleKeys',
       entityQueryString,
       'TestService',
       'boundFunctionWithoutArgumentsWithMultipleKeys',
@@ -60,12 +60,12 @@ class TestEntity extends odata_v4_1.Entity {
       )
     };
     const deSerializers = odata_v4_1.defaultDeSerializers;
-    const entityQueryString = TestEntity._keys
+    const entityQueryString = TestEntityWithMultipleKeys._keys
       .map(key => key + '=' + this[(0, util_1.camelCase)(key)])
       .join(',');
     return new odata_v4_1.BoundFunctionRequestBuilder(
       '/odata/test-service',
-      'TestEntity',
+      'TestEntityWithMultipleKeys',
       entityQueryString,
       'TestService',
       'boundFunctionWithArgumentsWithMultipleKeys',
@@ -77,12 +77,12 @@ class TestEntity extends odata_v4_1.Entity {
   getStringProperty() {
     const params = {};
     const deSerializers = odata_v4_1.defaultDeSerializers;
-    const entityQueryString = TestEntity._keys
+    const entityQueryString = TestEntityWithMultipleKeys._keys
       .map(key => key + '=' + this[(0, util_1.camelCase)(key)])
       .join(',');
     return new odata_v4_1.BoundFunctionRequestBuilder(
       '/odata/test-service',
-      'TestEntity',
+      'TestEntityWithMultipleKeys',
       entityQueryString,
       'TestService',
       'getStringProperty',
@@ -94,12 +94,12 @@ class TestEntity extends odata_v4_1.Entity {
   boundActionWithoutArguments() {
     const params = {};
     const deSerializers = odata_v4_1.defaultDeSerializers;
-    const entityQueryString = TestEntity._keys
+    const entityQueryString = TestEntityWithMultipleKeys._keys
       .map(key => key + '=' + this[(0, util_1.camelCase)(key)])
       .join(',');
     return new odata_v4_1.BoundActionRequestBuilder(
       '/odata/test-service',
-      'TestEntity',
+      'TestEntityWithMultipleKeys',
       entityQueryString,
       'TestService',
       'boundActionWithoutArguments',
@@ -111,12 +111,12 @@ class TestEntity extends odata_v4_1.Entity {
   deleteEntity() {
     const params = {};
     const deSerializers = odata_v4_1.defaultDeSerializers;
-    const entityQueryString = TestEntity._keys
+    const entityQueryString = TestEntityWithMultipleKeys._keys
       .map(key => key + '=' + this[(0, util_1.camelCase)(key)])
       .join(',');
     return new odata_v4_1.BoundActionRequestBuilder(
       '/odata/test-service',
-      'TestEntity',
+      'TestEntityWithMultipleKeys',
       entityQueryString,
       'TestService',
       'deleteEntity',
@@ -126,17 +126,21 @@ class TestEntity extends odata_v4_1.Entity {
     );
   }
 }
-exports.TestEntity = TestEntity;
+exports.TestEntityWithMultipleKeys = TestEntityWithMultipleKeys;
 /**
- * Technical entity name for TestEntity.
+ * Technical entity name for TestEntityWithMultipleKeys.
  */
-TestEntity._entityName = 'TestEntity';
+TestEntityWithMultipleKeys._entityName = 'TestEntityWithMultipleKeys';
 /**
  * Default url path for the according service.
  */
-TestEntity._defaultServicePath = '/odata/test-service';
+TestEntityWithMultipleKeys._defaultServicePath = '/odata/test-service';
 /**
- * All key fields of the TestEntity entity
+ * All key fields of the TestEntityWithMultipleKeys entity
  */
-TestEntity._keys = ['KeyTestEntity'];
-//# sourceMappingURL=TestEntity.js.map
+TestEntityWithMultipleKeys._keys = [
+  'KeyTestEntityWithMultipleKeys',
+  'StringPropertyWithMultipleKeys',
+  'BooleanPropertyWithMultipleKeys'
+];
+//# sourceMappingURL=TestEntityWithMultipleKeys.js.map

@@ -54,7 +54,7 @@ export class TestEntityLink<T extends DeSerializers = DefaultDeSerializers>
 
   boundFunctionWithoutArguments<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null> {
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null> {
     const params = {};
     const deSerializers = defaultDeSerializers as any;
     const entityQueryString = TestEntityLink._keys
@@ -72,9 +72,55 @@ export class TestEntityLink<T extends DeSerializers = DefaultDeSerializers>
     );
   }
 
+  boundFunctionWithoutArgumentsWithMultipleKeys<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null> {
+    const params = {};
+    const deSerializers = defaultDeSerializers as any;
+    const entityQueryString = TestEntityLink._keys
+      .map(key => key + '=' + this[camelCase(key) as keyof TestEntityLink])
+      .join(',');
+    return new BoundFunctionRequestBuilder(
+      '/odata/test-service',
+      'TestEntityLink',
+      entityQueryString,
+      'TestService',
+      'boundFunctionWithoutArgumentsWithMultipleKeys',
+      data => data,
+      params,
+      deSerializers
+    );
+  }
+
+  boundFunctionWithArgumentsWithMultipleKeys<
+    DeSerializersT extends DeSerializers = DefaultDeSerializers
+  >(
+    param1: string,
+    param2: string
+  ): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null> {
+    const params = {
+      param1: new FunctionImportParameter('param1', 'Edm.String', param1),
+      param2: new FunctionImportParameter('param2', 'Edm.String', param2)
+    };
+    const deSerializers = defaultDeSerializers as any;
+    const entityQueryString = TestEntityLink._keys
+      .map(key => key + '=' + this[camelCase(key) as keyof TestEntityLink])
+      .join(',');
+    return new BoundFunctionRequestBuilder(
+      '/odata/test-service',
+      'TestEntityLink',
+      entityQueryString,
+      'TestService',
+      'boundFunctionWithArgumentsWithMultipleKeys',
+      data => data,
+      params,
+      deSerializers
+    );
+  }
+
   getStringProperty<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null> {
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null> {
     const params = {};
     const deSerializers = defaultDeSerializers as any;
     const entityQueryString = TestEntityLink._keys
@@ -94,7 +140,7 @@ export class TestEntityLink<T extends DeSerializers = DefaultDeSerializers>
 
   boundActionWithoutArguments<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundActionRequestBuilder<DeSerializersT, any, string | null> {
+  >(): BoundActionRequestBuilder<DeSerializersT, any, undefined | null> {
     const params = {};
     const deSerializers = defaultDeSerializers as any;
     const entityQueryString = TestEntityLink._keys
@@ -114,7 +160,7 @@ export class TestEntityLink<T extends DeSerializers = DefaultDeSerializers>
 
   deleteEntity<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundActionRequestBuilder<DeSerializersT, any, string | null> {
+  >(): BoundActionRequestBuilder<DeSerializersT, any, undefined | null> {
     const params = {};
     const deSerializers = defaultDeSerializers as any;
     const entityQueryString = TestEntityLink._keys

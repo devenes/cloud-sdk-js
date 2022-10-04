@@ -49,7 +49,7 @@ export class Airlines<T extends DeSerializers = DefaultDeSerializers>
 
   GetFavoriteAirline<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null> {
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null> {
     const params = {};
     const deSerializers = defaultDeSerializers as any;
     const entityQueryString = Airlines._keys
@@ -69,7 +69,7 @@ export class Airlines<T extends DeSerializers = DefaultDeSerializers>
 
   GetInvolvedPeople<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null> {
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null> {
     const params = {};
     const deSerializers = defaultDeSerializers as any;
     const entityQueryString = Airlines._keys
@@ -89,7 +89,7 @@ export class Airlines<T extends DeSerializers = DefaultDeSerializers>
 
   GetFriendsTrips<DeSerializersT extends DeSerializers = DefaultDeSerializers>(
     userName: string
-  ): BoundFunctionRequestBuilder<DeSerializersT, any, string | null> {
+  ): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null> {
     const params = {
       userName: new FunctionImportParameter('userName', 'Edm.String', userName)
     };
@@ -112,7 +112,7 @@ export class Airlines<T extends DeSerializers = DefaultDeSerializers>
   ShareTrip<DeSerializersT extends DeSerializers = DefaultDeSerializers>(
     userName: string,
     tripId: number
-  ): BoundActionRequestBuilder<DeSerializersT, any, string | null> {
+  ): BoundActionRequestBuilder<DeSerializersT, any, undefined | null> {
     const params = {
       userName: new ActionImportParameter('userName', 'Edm.String', userName),
       tripId: new ActionImportParameter('tripId', 'Edm.Int32', tripId)

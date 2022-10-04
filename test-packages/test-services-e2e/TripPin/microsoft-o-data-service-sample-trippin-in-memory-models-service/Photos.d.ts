@@ -36,17 +36,17 @@ export declare class Photos<T extends DeSerializers = DefaultDeSerializers>
   name?: DeserializedType<T, 'Edm.String'> | null;
   GetFavoriteAirline<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null>;
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null>;
   GetInvolvedPeople<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null>;
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null>;
   GetFriendsTrips<DeSerializersT extends DeSerializers = DefaultDeSerializers>(
     userName: string
-  ): BoundFunctionRequestBuilder<DeSerializersT, any, string | null>;
+  ): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null>;
   ShareTrip<DeSerializersT extends DeSerializers = DefaultDeSerializers>(
     userName: string,
     tripId: number
-  ): BoundActionRequestBuilder<DeSerializersT, any, string | null>;
+  ): BoundActionRequestBuilder<DeSerializersT, any, undefined | null>;
 }
 export interface PhotosType<T extends DeSerializers = DefaultDeSerializers> {
   id: DeserializedType<T, 'Edm.Int64'>;

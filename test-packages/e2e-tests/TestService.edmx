@@ -6,14 +6,15 @@
         <EntitySet Name="TestEntity" EntityType="TestService.TestEntity">
           <NavigationPropertyBinding Path="ToMultiLink" Target="TestEntityLink"/>
         </EntitySet>
-        <EntitySet Name="TestEntityWithMultipleKeys" EntityType="TestService.TestEntityWithMultipleKeys"/>
         <EntitySet Name="TestEntityLink" EntityType="TestService.TestEntityLink"/>
+        <EntitySet Name="TestEntityWithMultipleKeys" EntityType="TestService.TestEntityWithMultipleKeys"/>
         <EntitySet Name="TestEntity50Prop" EntityType="TestService.TestEntity50Prop"/>
         <FunctionImport Name="returnSapCloudSdk" Function="TestService.returnSapCloudSdk"/>
         <FunctionImport Name="concatStrings" Function="TestService.concatStrings"/>
         <FunctionImport Name="returnInt" Function="TestService.returnInt"/>
         <FunctionImport Name="returnCollection" Function="TestService.returnCollection"/>
         <FunctionImport Name="getByKey" Function="TestService.getByKey" EntitySet="TestEntity"/>
+        <FunctionImport Name="getByKeyWithMultipleKeys" Function="TestService.getByKeyWithMultipleKeys" EntitySet="TestEntityWithMultipleKeys"/>
         <FunctionImport Name="getAll" Function="TestService.getAll" EntitySet="TestEntity"/>
         <FunctionImport Name="returnKey" Function="TestService.returnKey"/>
         <ActionImport Name="createTestEntityById" Action="TestService.createTestEntityById" EntitySet="TestEntity"/>
@@ -39,6 +40,15 @@
           <OnDelete Action="Cascade"/>
         </NavigationProperty>
       </EntityType>
+      <EntityType Name="TestEntityLink">
+        <Key>
+          <PropertyRef Name="KeyTestEntityLink"/>
+          <PropertyRef Name="KeyToTestEntity"/>
+        </Key>
+        <Property Name="KeyTestEntityLink" Type="Edm.Int32" Nullable="false"/>
+        <Property Name="KeyToTestEntity" Type="Edm.Int32" Nullable="false"/>
+        <Property Name="StringProperty" Type="Edm.String" MaxLength="111"/>
+      </EntityType>
       <EntityType Name="TestEntityWithMultipleKeys">
         <Key>
           <PropertyRef Name="KeyTestEntityWithMultipleKeys"/>
@@ -48,15 +58,6 @@
         <Property Name="KeyTestEntityWithMultipleKeys" Type="Edm.Int32" Nullable="false"/>
         <Property Name="StringPropertyWithMultipleKeys" Type="Edm.String" MaxLength="111" Nullable="false"/>
         <Property Name="BooleanPropertyWithMultipleKeys" Type="Edm.Boolean" Nullable="false"/>
-      </EntityType>
-      <EntityType Name="TestEntityLink">
-        <Key>
-          <PropertyRef Name="KeyTestEntityLink"/>
-          <PropertyRef Name="KeyToTestEntity"/>
-        </Key>
-        <Property Name="KeyTestEntityLink" Type="Edm.Int32" Nullable="false"/>
-        <Property Name="KeyToTestEntity" Type="Edm.Int32" Nullable="false"/>
-        <Property Name="StringProperty" Type="Edm.String" MaxLength="111"/>
       </EntityType>
       <EntityType Name="TestEntity50Prop">
         <Key>
@@ -128,6 +129,14 @@
         <Parameter Name="param2" Type="Edm.String"/>
         <ReturnType Type="Edm.String"/>
       </Function>
+      <Action Name="deleteEntity" IsBound="true">
+        <Parameter Name="in" Type="TestService.TestEntity"/>
+        <ReturnType Type="Edm.Int32"/>
+      </Action>
+      <Action Name="boundActionWithoutArguments" IsBound="true">
+        <Parameter Name="in" Type="TestService.TestEntity"/>
+        <ReturnType Type="Edm.String"/>
+      </Action>
       <Function Name="boundFunctionWithoutArgumentsWithMultipleKeys" IsBound="true" IsComposable="false">
         <Parameter Name="in" Type="TestService.TestEntityWithMultipleKeys"/>
         <ReturnType Type="Edm.String"/>
@@ -138,14 +147,6 @@
         <Parameter Name="param2" Type="Edm.String"/>
         <ReturnType Type="Edm.String"/>
       </Function>
-      <Action Name="deleteEntity" IsBound="true">
-        <Parameter Name="in" Type="TestService.TestEntity"/>
-        <ReturnType Type="Edm.Int32"/>
-      </Action>
-      <Action Name="boundActionWithoutArguments" IsBound="true">
-        <Parameter Name="in" Type="TestService.TestEntity"/>
-        <ReturnType Type="Edm.String"/>
-      </Action>
       <Function Name="returnSapCloudSdk" IsBound="false" IsComposable="false">
         <ReturnType Type="Edm.String"/>
       </Function>

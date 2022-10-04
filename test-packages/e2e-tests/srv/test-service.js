@@ -6,7 +6,7 @@ module.exports = async srv => {
   cds.model = cds.compile.for.nodejs(csn);
 
   const db = await cds.connect.to('db');
-  const { TestEntity } = srv.entities;
+  const { TestEntity, TestEntityWithMultipleKeys } = srv.entities;
 
   // bound function
   srv.on('getStringProperty', 'TestEntity', async oRequest => {
@@ -16,11 +16,19 @@ module.exports = async srv => {
     oRequest.reply(entity.StringProperty);
   });
 
+  srv.on('boundFunctionWithoutArgumentsWithMultipleKeys', 'TestEntityWithMultipleKeys', async oRequest => {
+    oRequest.reply('xyz');
+  });
+
   srv.on('boundFunctionWithoutArguments', 'TestEntity', async oRequest => {
     oRequest.reply('xyz');
   });
 
   srv.on('boundFunctionWithArguments', 'TestEntity', async oRequest => {
+    oRequest.reply('xyz' + oRequest.data.param1 + oRequest.data.param2);
+  });
+
+  srv.on('boundFunctionWithArgumentsWithMultipleKeys', 'TestEntityWithMultipleKeys', async oRequest => {
     oRequest.reply('xyz' + oRequest.data.param1 + oRequest.data.param2);
   });
 
@@ -85,6 +93,18 @@ module.exports = async srv => {
     const entity = await SELECT.one
       .from(TestEntity)
       .where({ KeyTestEntity: param });
+    oRequest.reply(entity);
+  });
+
+  srv.on('getByKeyWithMultipleKeys', async oRequest => {
+    const param1 = oRequest.data.param1;
+    const param2 = oRequest.data.param2;
+    const param3 = oRequest.data.param3;
+    const entity = await SELECT.one
+      .from(TestEntityWithMultipleKeys)
+      .where({ KeyTestEntityWithMultipleKeys: param1,
+        StringPropertyWithMultipleKeys: param2,
+        BooleanPropertyWithMultipleKeys: param3 });
     oRequest.reply(entity);
   });
 

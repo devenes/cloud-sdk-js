@@ -44,17 +44,17 @@ export declare class Airports<T extends DeSerializers = DefaultDeSerializers>
   location: AirportLocation<T>;
   GetFavoriteAirline<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null>;
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null>;
   GetInvolvedPeople<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null>;
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null>;
   GetFriendsTrips<DeSerializersT extends DeSerializers = DefaultDeSerializers>(
     userName: string
-  ): BoundFunctionRequestBuilder<DeSerializersT, any, string | null>;
+  ): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null>;
   ShareTrip<DeSerializersT extends DeSerializers = DefaultDeSerializers>(
     userName: string,
     tripId: number
-  ): BoundActionRequestBuilder<DeSerializersT, any, string | null>;
+  ): BoundActionRequestBuilder<DeSerializersT, any, undefined | null>;
 }
 export interface AirportsType<T extends DeSerializers = DefaultDeSerializers> {
   icaoCode: DeserializedType<T, 'Edm.String'>;

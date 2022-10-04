@@ -77,14 +77,14 @@ export function getFunctionWithMinParameters(
  * @internal
  */
 export function getActionFunctionParams(parameters: VdmParameter[]): string {
-  const paramString = parameters
+  const StringPropertyWithMultipleKeys = parameters
     .slice(0, 2)
     .reduce(
       (cumulator, currentParam) =>
         `${cumulator}, ${currentParam.parameterName}: '${currentParam.parameterName}'`,
       ''
     );
-  return `{${paramString.substring(1)}${
+  return `{${StringPropertyWithMultipleKeys.substring(1)}${
     parameters.length > 2 ? ', ...' : ''
   } }`;
 }

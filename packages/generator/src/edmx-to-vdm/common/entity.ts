@@ -166,7 +166,7 @@ function boundActions(
         jsType: edmToTsType(p.Type),
         edmType: p.Type
       })),
-    returnType: a.ReturnType.Type // edmToTsType(a.ReturnType.Type)
+    returnType: 'string' // a.ReturnType?.Type ? a.ReturnType?.Type: 'any' // edmToTsType(a.ReturnType.Type)
   }));
 }
 

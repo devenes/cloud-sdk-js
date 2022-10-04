@@ -69,17 +69,17 @@ export declare class People<T extends DeSerializers = DefaultDeSerializers>
   photo?: Photos<T> | null;
   GetFavoriteAirline<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null>;
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null>;
   GetInvolvedPeople<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundFunctionRequestBuilder<DeSerializersT, any, string | null>;
+  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null>;
   GetFriendsTrips<DeSerializersT extends DeSerializers = DefaultDeSerializers>(
     userName: string
-  ): BoundFunctionRequestBuilder<DeSerializersT, any, string | null>;
+  ): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null>;
   ShareTrip<DeSerializersT extends DeSerializers = DefaultDeSerializers>(
     userName: string,
     tripId: number
-  ): BoundActionRequestBuilder<DeSerializersT, any, string | null>;
+  ): BoundActionRequestBuilder<DeSerializersT, any, undefined | null>;
 }
 export interface PeopleType<T extends DeSerializers = DefaultDeSerializers> {
   userName: DeserializedType<T, 'Edm.String'>;
