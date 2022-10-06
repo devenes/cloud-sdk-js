@@ -1,5 +1,9 @@
-import { TestEntity, TestEntityWithMultipleKeys, testService } from '@sap-cloud-sdk/test-services-e2e/v4/test-service';
-import { getByKey, getByKeyWithMultipleKeys } from '@sap-cloud-sdk/test-services-e2e/v4/test-service/function-imports';
+import {
+  TestEntity,
+  TestEntityWithMultipleKeys,
+  testService
+} from '@sap-cloud-sdk/test-services-e2e/v4/test-service';
+import { getByKey } from '@sap-cloud-sdk/test-services-e2e/v4/test-service/function-imports';
 
 const url = 'http://localhost:4004/';
 const destination = { url };
@@ -27,7 +31,11 @@ describe('bound functions', () => {
       // http://localhost:4004/odata/test-service/TestEntityWithMultipleKeys(KeyTestEntityWithMultipleKeys=101,StringPropertyWithMultipleKeys='a',BooleanPropertyWithMultipleKeys=true)/TestService.boundFunctionWithoutArgumentsWithMultipleKeys()
 
       const { testEntityWithMultipleKeysApi } = testService();
-      const entity: TestEntityWithMultipleKeys = await testEntityWithMultipleKeysApi.requestBuilder().getByKey(101, 'a', true).execute(destination);
+      const entity: TestEntityWithMultipleKeys =
+        await testEntityWithMultipleKeysApi
+          .requestBuilder()
+          .getByKey(101, 'a', true)
+          .execute(destination);
       const expected = {
         '@odata.context': '../$metadata#Edm.String',
         value: 'xyz'

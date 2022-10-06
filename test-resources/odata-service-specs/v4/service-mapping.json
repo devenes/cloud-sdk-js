@@ -1,8 +1,8 @@
 {
   "API_BOUND_FUNCTIONS_ACTIONS_SRV": {
-    "directoryName": "test-service",
+    "directoryName": "bound-test-service",
     "servicePath": "/odata/test-service",
-    "npmPackageName": "test-service"
+    "npmPackageName": "bound-test-service"
   },
   "API_MULTIPLE_SCHEMAS_SRV": {
     "directoryName": "multiple-schemas-service",
