@@ -1,21 +1,40 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.functionImports = exports.getAll = exports.getByKey = exports.returnCollection = exports.returnInt = exports.concatStrings = exports.returnSapCloudSdk = void 0;
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+exports.functionImports =
+  exports.getAll =
+  exports.getByKey =
+  exports.returnCollection =
+  exports.returnInt =
+  exports.concatStrings =
+  exports.returnSapCloudSdk =
+    void 0;
 /*
  * Copyright (c) 2022 SAP SE or an SAP affiliate company. All rights reserved.
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-const odata_v4_1 = require("@sap-cloud-sdk/odata-v4");
-const service_1 = require("./service");
+const odata_v4_1 = require('@sap-cloud-sdk/odata-v4');
+const service_1 = require('./service');
 /**
  * Return Sap Cloud Sdk.
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resulting request.
  */
-function returnSapCloudSdk(parameters, deSerializers = odata_v4_1.defaultDeSerializers) {
-    const params = {};
-    return new odata_v4_1.FunctionImportRequestBuilder('/odata/test-service', 'returnSapCloudSdk', (data) => (0, odata_v4_1.transformReturnValueForEdmType)(data, (val) => (0, odata_v4_1.edmToTs)(val.value, 'Edm.String', deSerializers)), params, deSerializers);
+function returnSapCloudSdk(
+  parameters,
+  deSerializers = odata_v4_1.defaultDeSerializers
+) {
+  const params = {};
+  return new odata_v4_1.FunctionImportRequestBuilder(
+    '/odata/test-service',
+    'returnSapCloudSdk',
+    data =>
+      (0, odata_v4_1.transformReturnValueForEdmType)(data, val =>
+        (0, odata_v4_1.edmToTs)(val.value, 'Edm.String', deSerializers)
+      ),
+    params,
+    deSerializers
+  );
 }
 exports.returnSapCloudSdk = returnSapCloudSdk;
 /**
@@ -23,12 +42,32 @@ exports.returnSapCloudSdk = returnSapCloudSdk;
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resulting request.
  */
-function concatStrings(parameters, deSerializers = odata_v4_1.defaultDeSerializers) {
-    const params = {
-        str1: new odata_v4_1.FunctionImportParameter('Str1', 'Edm.String', parameters.str1),
-        str2: new odata_v4_1.FunctionImportParameter('Str2', 'Edm.String', parameters.str2)
-    };
-    return new odata_v4_1.FunctionImportRequestBuilder('/odata/test-service', 'concatStrings', (data) => (0, odata_v4_1.transformReturnValueForEdmType)(data, (val) => (0, odata_v4_1.edmToTs)(val.value, 'Edm.String', deSerializers)), params, deSerializers);
+function concatStrings(
+  parameters,
+  deSerializers = odata_v4_1.defaultDeSerializers
+) {
+  const params = {
+    str1: new odata_v4_1.FunctionImportParameter(
+      'Str1',
+      'Edm.String',
+      parameters.str1
+    ),
+    str2: new odata_v4_1.FunctionImportParameter(
+      'Str2',
+      'Edm.String',
+      parameters.str2
+    )
+  };
+  return new odata_v4_1.FunctionImportRequestBuilder(
+    '/odata/test-service',
+    'concatStrings',
+    data =>
+      (0, odata_v4_1.transformReturnValueForEdmType)(data, val =>
+        (0, odata_v4_1.edmToTs)(val.value, 'Edm.String', deSerializers)
+      ),
+    params,
+    deSerializers
+  );
 }
 exports.concatStrings = concatStrings;
 /**
@@ -36,11 +75,27 @@ exports.concatStrings = concatStrings;
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resulting request.
  */
-function returnInt(parameters, deSerializers = odata_v4_1.defaultDeSerializers) {
-    const params = {
-        param: new odata_v4_1.FunctionImportParameter('param', 'Edm.Int32', parameters.param)
-    };
-    return new odata_v4_1.FunctionImportRequestBuilder('/odata/test-service', 'returnInt', (data) => (0, odata_v4_1.transformReturnValueForEdmType)(data, (val) => (0, odata_v4_1.edmToTs)(val.value, 'Edm.Int32', deSerializers)), params, deSerializers);
+function returnInt(
+  parameters,
+  deSerializers = odata_v4_1.defaultDeSerializers
+) {
+  const params = {
+    param: new odata_v4_1.FunctionImportParameter(
+      'param',
+      'Edm.Int32',
+      parameters.param
+    )
+  };
+  return new odata_v4_1.FunctionImportRequestBuilder(
+    '/odata/test-service',
+    'returnInt',
+    data =>
+      (0, odata_v4_1.transformReturnValueForEdmType)(data, val =>
+        (0, odata_v4_1.edmToTs)(val.value, 'Edm.Int32', deSerializers)
+      ),
+    params,
+    deSerializers
+  );
 }
 exports.returnInt = returnInt;
 /**
@@ -48,11 +103,27 @@ exports.returnInt = returnInt;
  * @param parameters - Object containing all parameters for the function import.
  * @returns A request builder that allows to overwrite some of the values and execute the resulting request.
  */
-function returnCollection(parameters, deSerializers = odata_v4_1.defaultDeSerializers) {
-    const params = {
-        param: new odata_v4_1.FunctionImportParameter('param', 'Edm.Int32', parameters.param)
-    };
-    return new odata_v4_1.FunctionImportRequestBuilder('/odata/test-service', 'returnCollection', (data) => (0, odata_v4_1.transformReturnValueForEdmTypeList)(data, (val) => (0, odata_v4_1.edmToTs)(val, 'Edm.Int32', deSerializers)), params, deSerializers);
+function returnCollection(
+  parameters,
+  deSerializers = odata_v4_1.defaultDeSerializers
+) {
+  const params = {
+    param: new odata_v4_1.FunctionImportParameter(
+      'param',
+      'Edm.Int32',
+      parameters.param
+    )
+  };
+  return new odata_v4_1.FunctionImportRequestBuilder(
+    '/odata/test-service',
+    'returnCollection',
+    data =>
+      (0, odata_v4_1.transformReturnValueForEdmTypeList)(data, val =>
+        (0, odata_v4_1.edmToTs)(val, 'Edm.Int32', deSerializers)
+      ),
+    params,
+    deSerializers
+  );
 }
 exports.returnCollection = returnCollection;
 /**
@@ -61,10 +132,24 @@ exports.returnCollection = returnCollection;
  * @returns A request builder that allows to overwrite some of the values and execute the resulting request.
  */
 function getByKey(parameters, deSerializers = odata_v4_1.defaultDeSerializers) {
-    const params = {
-        param: new odata_v4_1.FunctionImportParameter('param', 'Edm.Int32', parameters.param)
-    };
-    return new odata_v4_1.FunctionImportRequestBuilder('/odata/test-service', 'getByKey', (data) => (0, odata_v4_1.transformReturnValueForEntity)(data, (0, service_1.boundTestService)(deSerializers).testEntityApi), params, deSerializers);
+  const params = {
+    param: new odata_v4_1.FunctionImportParameter(
+      'param',
+      'Edm.Int32',
+      parameters.param
+    )
+  };
+  return new odata_v4_1.FunctionImportRequestBuilder(
+    '/odata/test-service',
+    'getByKey',
+    data =>
+      (0, odata_v4_1.transformReturnValueForEntity)(
+        data,
+        (0, service_1.boundTestService)(deSerializers).testEntityApi
+      ),
+    params,
+    deSerializers
+  );
 }
 exports.getByKey = getByKey;
 /**
@@ -73,16 +158,26 @@ exports.getByKey = getByKey;
  * @returns A request builder that allows to overwrite some of the values and execute the resulting request.
  */
 function getAll(parameters, deSerializers = odata_v4_1.defaultDeSerializers) {
-    const params = {};
-    return new odata_v4_1.FunctionImportRequestBuilder('/odata/test-service', 'getAll', (data) => (0, odata_v4_1.transformReturnValueForEntityList)(data, (0, service_1.boundTestService)(deSerializers).testEntityApi), params, deSerializers);
+  const params = {};
+  return new odata_v4_1.FunctionImportRequestBuilder(
+    '/odata/test-service',
+    'getAll',
+    data =>
+      (0, odata_v4_1.transformReturnValueForEntityList)(
+        data,
+        (0, service_1.boundTestService)(deSerializers).testEntityApi
+      ),
+    params,
+    deSerializers
+  );
 }
 exports.getAll = getAll;
 exports.functionImports = {
-    returnSapCloudSdk,
-    concatStrings,
-    returnInt,
-    returnCollection,
-    getByKey,
-    getAll
+  returnSapCloudSdk,
+  concatStrings,
+  returnInt,
+  returnCollection,
+  getByKey,
+  getAll
 };
 //# sourceMappingURL=function-imports.js.map

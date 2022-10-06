@@ -18,7 +18,7 @@ class Airlines extends odata_v4_1.Entity {
     return new odata_v4_1.BoundFunctionRequestBuilder(
       this._entityApi,
       this,
-      'Microsoft.OData.SampleService.Models.TripPin.GetFavoriteAirline',
+      'Microsoft.OData.SampleService.Models.TripPin.undefined',
       data => data,
       params,
       deSerializers
@@ -30,7 +30,7 @@ class Airlines extends odata_v4_1.Entity {
     return new odata_v4_1.BoundFunctionRequestBuilder(
       this._entityApi,
       this,
-      'Microsoft.OData.SampleService.Models.TripPin.GetInvolvedPeople',
+      'Microsoft.OData.SampleService.Models.TripPin.undefined',
       data => data,
       params,
       deSerializers
@@ -48,7 +48,7 @@ class Airlines extends odata_v4_1.Entity {
     return new odata_v4_1.BoundFunctionRequestBuilder(
       this._entityApi,
       this,
-      'Microsoft.OData.SampleService.Models.TripPin.GetFriendsTrips',
+      'Microsoft.OData.SampleService.Models.TripPin.undefined',
       data => data,
       params,
       deSerializers

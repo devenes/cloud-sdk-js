@@ -15,12 +15,12 @@ class TestEntityLink extends odata_v4_1.Entity {
     getStringProperty() {
         const params = {};
         const deSerializers = odata_v4_1.defaultDeSerializers;
-        return new odata_v4_1.BoundFunctionRequestBuilder(this._entityApi, this, 'TestService.getStringProperty', (data) => data, params, deSerializers);
+        return new odata_v4_1.BoundFunctionRequestBuilder(this._entityApi, this, 'TestService.undefined', (data) => data, params, deSerializers);
     }
     boundFunctionWithoutArguments() {
         const params = {};
         const deSerializers = odata_v4_1.defaultDeSerializers;
-        return new odata_v4_1.BoundFunctionRequestBuilder(this._entityApi, this, 'TestService.boundFunctionWithoutArguments', (data) => data, params, deSerializers);
+        return new odata_v4_1.BoundFunctionRequestBuilder(this._entityApi, this, 'TestService.undefined', (data) => data, params, deSerializers);
     }
     boundFunctionWithArguments(param1, param2) {
         const params = {
@@ -28,12 +28,12 @@ class TestEntityLink extends odata_v4_1.Entity {
             param2: new odata_v4_1.FunctionImportParameter('param2', 'Edm.String', param2),
         };
         const deSerializers = odata_v4_1.defaultDeSerializers;
-        return new odata_v4_1.BoundFunctionRequestBuilder(this._entityApi, this, 'TestService.boundFunctionWithArguments', (data) => data, params, deSerializers);
+        return new odata_v4_1.BoundFunctionRequestBuilder(this._entityApi, this, 'TestService.undefined', (data) => data, params, deSerializers);
     }
     boundFunctionWithoutArgumentsWithMultipleKeys() {
         const params = {};
         const deSerializers = odata_v4_1.defaultDeSerializers;
-        return new odata_v4_1.BoundFunctionRequestBuilder(this._entityApi, this, 'TestService.boundFunctionWithoutArgumentsWithMultipleKeys', (data) => data, params, deSerializers);
+        return new odata_v4_1.BoundFunctionRequestBuilder(this._entityApi, this, 'TestService.undefined', (data) => data, params, deSerializers);
     }
     boundFunctionWithArgumentsWithMultipleKeys(param1, param2) {
         const params = {
@@ -41,7 +41,7 @@ class TestEntityLink extends odata_v4_1.Entity {
             param2: new odata_v4_1.FunctionImportParameter('param2', 'Edm.String', param2),
         };
         const deSerializers = odata_v4_1.defaultDeSerializers;
-        return new odata_v4_1.BoundFunctionRequestBuilder(this._entityApi, this, 'TestService.boundFunctionWithArgumentsWithMultipleKeys', (data) => data, params, deSerializers);
+        return new odata_v4_1.BoundFunctionRequestBuilder(this._entityApi, this, 'TestService.undefined', (data) => data, params, deSerializers);
     }
     deleteEntity() {
         const params = {};

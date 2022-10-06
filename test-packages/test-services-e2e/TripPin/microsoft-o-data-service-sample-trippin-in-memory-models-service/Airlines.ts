@@ -60,7 +60,7 @@ export class Airlines<T extends DeSerializers = DefaultDeSerializers>
     return new BoundFunctionRequestBuilder(
       this._entityApi as any,
       this as any,
-      'Microsoft.OData.SampleService.Models.TripPin.GetFavoriteAirline',
+      'Microsoft.OData.SampleService.Models.TripPin.undefined',
       data => data,
       params,
       deSerializers
@@ -80,7 +80,7 @@ export class Airlines<T extends DeSerializers = DefaultDeSerializers>
     return new BoundFunctionRequestBuilder(
       this._entityApi as any,
       this as any,
-      'Microsoft.OData.SampleService.Models.TripPin.GetInvolvedPeople',
+      'Microsoft.OData.SampleService.Models.TripPin.undefined',
       data => data,
       params,
       deSerializers
@@ -102,7 +102,7 @@ export class Airlines<T extends DeSerializers = DefaultDeSerializers>
     return new BoundFunctionRequestBuilder(
       this._entityApi as any,
       this as any,
-      'Microsoft.OData.SampleService.Models.TripPin.GetFriendsTrips',
+      'Microsoft.OData.SampleService.Models.TripPin.undefined',
       data => data,
       params,
       deSerializers

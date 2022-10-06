@@ -287,7 +287,7 @@ export class TestEntity50Prop<T extends DeSerializers = DefaultDeSerializers> ex
     };
     const deSerializers = defaultDeSerializers as any;
     return new BoundFunctionRequestBuilder(
-      this._entityApi as any, this as any, 'TestService.getStringProperty', (data) => data, params, deSerializers
+      this._entityApi as any, this as any, 'TestService.undefined', (data) => data, params, deSerializers
     ) as any;
   }
 
@@ -296,7 +296,7 @@ export class TestEntity50Prop<T extends DeSerializers = DefaultDeSerializers> ex
     };
     const deSerializers = defaultDeSerializers as any;
     return new BoundFunctionRequestBuilder(
-      this._entityApi as any, this as any, 'TestService.boundFunctionWithoutArguments', (data) => data, params, deSerializers
+      this._entityApi as any, this as any, 'TestService.undefined', (data) => data, params, deSerializers
     ) as any;
   }
 
@@ -307,7 +307,7 @@ export class TestEntity50Prop<T extends DeSerializers = DefaultDeSerializers> ex
     };
     const deSerializers = defaultDeSerializers as any;
     return new BoundFunctionRequestBuilder(
-      this._entityApi as any, this as any, 'TestService.boundFunctionWithArguments', (data) => data, params, deSerializers
+      this._entityApi as any, this as any, 'TestService.undefined', (data) => data, params, deSerializers
     ) as any;
   }
 
@@ -316,7 +316,7 @@ export class TestEntity50Prop<T extends DeSerializers = DefaultDeSerializers> ex
     };
     const deSerializers = defaultDeSerializers as any;
     return new BoundFunctionRequestBuilder(
-      this._entityApi as any, this as any, 'TestService.boundFunctionWithoutArgumentsWithMultipleKeys', (data) => data, params, deSerializers
+      this._entityApi as any, this as any, 'TestService.undefined', (data) => data, params, deSerializers
     ) as any;
   }
 
@@ -327,7 +327,7 @@ export class TestEntity50Prop<T extends DeSerializers = DefaultDeSerializers> ex
     };
     const deSerializers = defaultDeSerializers as any;
     return new BoundFunctionRequestBuilder(
-      this._entityApi as any, this as any, 'TestService.boundFunctionWithArgumentsWithMultipleKeys', (data) => data, params, deSerializers
+      this._entityApi as any, this as any, 'TestService.undefined', (data) => data, params, deSerializers
     ) as any;
   }
 
