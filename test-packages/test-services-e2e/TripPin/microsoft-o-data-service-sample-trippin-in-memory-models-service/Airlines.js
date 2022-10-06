@@ -15,15 +15,10 @@ class Airlines extends odata_v4_1.Entity {
   GetFavoriteAirline() {
     const params = {};
     const deSerializers = odata_v4_1.defaultDeSerializers;
-    const entityQueryString = Airlines._keys
-      .map(key => key + '=' + this[(0, util_1.camelCase)(key)])
-      .join(',');
     return new odata_v4_1.BoundFunctionRequestBuilder(
-      'V4/(S(duh2c3dgb1c5lzc0bqwgyekc))/TripPinServiceRW/',
-      'Airlines',
-      entityQueryString,
-      'MicrosoftODataServiceSampleTrippinInMemoryModelsService',
-      'GetFavoriteAirline',
+      this._entityApi,
+      this,
+      'Microsoft.OData.SampleService.Models.TripPin.GetFavoriteAirline',
       data => data,
       params,
       deSerializers
@@ -32,15 +27,10 @@ class Airlines extends odata_v4_1.Entity {
   GetInvolvedPeople() {
     const params = {};
     const deSerializers = odata_v4_1.defaultDeSerializers;
-    const entityQueryString = Airlines._keys
-      .map(key => key + '=' + this[(0, util_1.camelCase)(key)])
-      .join(',');
     return new odata_v4_1.BoundFunctionRequestBuilder(
-      'V4/(S(duh2c3dgb1c5lzc0bqwgyekc))/TripPinServiceRW/',
-      'Airlines',
-      entityQueryString,
-      'MicrosoftODataServiceSampleTrippinInMemoryModelsService',
-      'GetInvolvedPeople',
+      this._entityApi,
+      this,
+      'Microsoft.OData.SampleService.Models.TripPin.GetInvolvedPeople',
       data => data,
       params,
       deSerializers
@@ -55,15 +45,10 @@ class Airlines extends odata_v4_1.Entity {
       )
     };
     const deSerializers = odata_v4_1.defaultDeSerializers;
-    const entityQueryString = Airlines._keys
-      .map(key => key + '=' + this[(0, util_1.camelCase)(key)])
-      .join(',');
     return new odata_v4_1.BoundFunctionRequestBuilder(
-      'V4/(S(duh2c3dgb1c5lzc0bqwgyekc))/TripPinServiceRW/',
-      'Airlines',
-      entityQueryString,
-      'MicrosoftODataServiceSampleTrippinInMemoryModelsService',
-      'GetFriendsTrips',
+      this._entityApi,
+      this,
+      'Microsoft.OData.SampleService.Models.TripPin.GetFriendsTrips',
       data => data,
       params,
       deSerializers

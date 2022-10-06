@@ -35,13 +35,28 @@ export declare class Airlines<T extends DeSerializers = DefaultDeSerializers>
   name: DeserializedType<T, 'Edm.String'>;
   GetFavoriteAirline<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null>;
+  >(): BoundFunctionRequestBuilder<
+    Airlines<DeSerializersT>,
+    DeSerializersT,
+    any,
+    undefined | null
+  >;
   GetInvolvedPeople<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null>;
+  >(): BoundFunctionRequestBuilder<
+    Airlines<DeSerializersT>,
+    DeSerializersT,
+    any,
+    undefined | null
+  >;
   GetFriendsTrips<DeSerializersT extends DeSerializers = DefaultDeSerializers>(
     userName: string
-  ): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null>;
+  ): BoundFunctionRequestBuilder<
+    Airlines<DeSerializersT>,
+    DeSerializersT,
+    any,
+    undefined | null
+  >;
   ShareTrip<DeSerializersT extends DeSerializers = DefaultDeSerializers>(
     userName: string,
     tripId: number

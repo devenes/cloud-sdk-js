@@ -74,11 +74,13 @@ export abstract class EntityBase {
 
   abstract readonly _oDataVersion: any;
 
-  constructor(private schema: Record<string, any>) {
+  private schema: Record<string, any>;
+  constructor(readonly _entityApi: any) {
     nonEnumerable(this, 'schema');
     nonEnumerable(this, '_oDataVersion');
     nonEnumerable(this, '_customFields');
     this._customFields = {};
+    this.schema = _entityApi.schema;
   }
 
   /**

@@ -8,7 +8,7 @@ describe('BoundFunctionRequestBuilder', () => {
     expect(
       await entity.boundFunctionWithoutArguments().url({ url: 'test' })
     ).toMatchInlineSnapshot(
-      '"test/odata/test-service/TestEntity(KeyTestEntity=1)/BoundTestService.boundFunctionWithoutArguments()"'
+      '"test/odata/test-service/TestEntity(KeyTestEntity=1)/TestService.boundFunctionWithoutArguments()"'
     );
   });
 });

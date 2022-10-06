@@ -3,19 +3,7 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import {
-  Entity,
-  DefaultDeSerializers,
-  DeSerializers,
-  DeserializedType,
-  entityDeserializer,
-  BoundActionRequestBuilder,
-  transformReturnValueForComplexType,
-  defaultDeSerializers,
-  BoundFunctionRequestBuilder,
-  FunctionImportParameter,
-  ActionImportParameter
-} from '@sap-cloud-sdk/odata-v4';
+import { Entity, DefaultDeSerializers, DeSerializers, DeserializedType, entityDeserializer, BoundActionRequestBuilder, transformReturnValueForComplexType, defaultDeSerializers, BoundFunctionRequestBuilder, FunctionImportParameter, ActionImportParameter } from '@sap-cloud-sdk/odata-v4';
 import { Location } from './Location';
 import { PersonGender } from './PersonGender';
 import { Photos, PhotosType } from './Photos';
@@ -24,10 +12,7 @@ import { camelCase } from '@sap-cloud-sdk/util';
 /**
  * This class represents the entity "People" of service "Microsoft.OData.SampleService.Models.TripPin".
  */
-export class People<T extends DeSerializers = DefaultDeSerializers>
-  extends Entity
-  implements PeopleType<T>
-{
+export class People<T extends DeSerializers = DefaultDeSerializers> extends Entity implements PeopleType<T> {
   /**
    * Technical entity name for People.
    */
@@ -35,8 +20,7 @@ export class People<T extends DeSerializers = DefaultDeSerializers>
   /**
    * Default url path for the according service.
    */
-  static _defaultServicePath =
-    'V4/(S(duh2c3dgb1c5lzc0bqwgyekc))/TripPinServiceRW/';
+  static _defaultServicePath = 'V4/(S(duh2c3dgb1c5lzc0bqwgyekc))/TripPinServiceRW/';
   /**
    * All key fields of the People entity
    */
@@ -81,89 +65,43 @@ export class People<T extends DeSerializers = DefaultDeSerializers>
    */
   photo?: Photos<T> | null;
 
-  GetFavoriteAirline<
-    DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null> {
-    const params = {};
-    const deSerializers = defaultDeSerializers as any;
-    const entityQueryString = People._keys
-      .map(key => key + '=' + this[camelCase(key) as keyof People])
-      .join(',');
-    return new BoundFunctionRequestBuilder(
-      'V4/(S(duh2c3dgb1c5lzc0bqwgyekc))/TripPinServiceRW/',
-      'People',
-      entityQueryString,
-      'MicrosoftODataServiceSampleTrippinInMemoryModelsService',
-      'GetFavoriteAirline',
-      data => data,
-      params,
-      deSerializers
-    );
-  }
-
-  GetInvolvedPeople<
-    DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null> {
-    const params = {};
-    const deSerializers = defaultDeSerializers as any;
-    const entityQueryString = People._keys
-      .map(key => key + '=' + this[camelCase(key) as keyof People])
-      .join(',');
-    return new BoundFunctionRequestBuilder(
-      'V4/(S(duh2c3dgb1c5lzc0bqwgyekc))/TripPinServiceRW/',
-      'People',
-      entityQueryString,
-      'MicrosoftODataServiceSampleTrippinInMemoryModelsService',
-      'GetInvolvedPeople',
-      data => data,
-      params,
-      deSerializers
-    );
-  }
-
-  GetFriendsTrips<DeSerializersT extends DeSerializers = DefaultDeSerializers>(
-    userName: string
-  ): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null> {
+  GetFavoriteAirline<DeSerializersT extends DeSerializers = DefaultDeSerializers>(): BoundFunctionRequestBuilder<People<DeSerializersT>, DeSerializersT, any, undefined | null> {
     const params = {
-      userName: new FunctionImportParameter('userName', 'Edm.String', userName)
     };
     const deSerializers = defaultDeSerializers as any;
-    const entityQueryString = People._keys
-      .map(key => key + '=' + this[camelCase(key) as keyof People])
-      .join(',');
     return new BoundFunctionRequestBuilder(
-      'V4/(S(duh2c3dgb1c5lzc0bqwgyekc))/TripPinServiceRW/',
-      'People',
-      entityQueryString,
-      'MicrosoftODataServiceSampleTrippinInMemoryModelsService',
-      'GetFriendsTrips',
-      data => data,
-      params,
-      deSerializers
-    );
+      this._entityApi as any, this as any, 'Microsoft.OData.SampleService.Models.TripPin.GetFavoriteAirline', (data) => data, params, deSerializers
+    ) as any;
   }
 
-  ShareTrip<DeSerializersT extends DeSerializers = DefaultDeSerializers>(
-    userName: string,
-    tripId: number
-  ): BoundActionRequestBuilder<DeSerializersT, any, undefined | null> {
+  GetInvolvedPeople<DeSerializersT extends DeSerializers = DefaultDeSerializers>(): BoundFunctionRequestBuilder<People<DeSerializersT>, DeSerializersT, any, undefined | null> {
+    const params = {
+    };
+    const deSerializers = defaultDeSerializers as any;
+    return new BoundFunctionRequestBuilder(
+      this._entityApi as any, this as any, 'Microsoft.OData.SampleService.Models.TripPin.GetInvolvedPeople', (data) => data, params, deSerializers
+    ) as any;
+  }
+
+  GetFriendsTrips<DeSerializersT extends DeSerializers = DefaultDeSerializers>(userName: string): BoundFunctionRequestBuilder<People<DeSerializersT>, DeSerializersT, any, undefined | null> {
+    const params = {
+      userName: new FunctionImportParameter('userName', 'Edm.String', userName),
+    };
+    const deSerializers = defaultDeSerializers as any;
+    return new BoundFunctionRequestBuilder(
+      this._entityApi as any, this as any, 'Microsoft.OData.SampleService.Models.TripPin.GetFriendsTrips', (data) => data, params, deSerializers
+    ) as any;
+  }
+
+  ShareTrip<DeSerializersT extends DeSerializers = DefaultDeSerializers>(userName: string, tripId: number): BoundActionRequestBuilder<DeSerializersT, any, undefined | null> {
     const params = {
       userName: new ActionImportParameter('userName', 'Edm.String', userName),
-      tripId: new ActionImportParameter('tripId', 'Edm.Int32', tripId)
+      tripId: new ActionImportParameter('tripId', 'Edm.Int32', tripId),
     };
     const deSerializers = defaultDeSerializers as any;
-    const entityQueryString = People._keys
-      .map(key => key + '=' + this[camelCase(key) as keyof People])
-      .join(',');
+    const entityQueryString = People._keys.map(key => key + '=' + this[camelCase(key) as keyof People]).join(',');
     return new BoundActionRequestBuilder(
-      'V4/(S(duh2c3dgb1c5lzc0bqwgyekc))/TripPinServiceRW/',
-      'People',
-      entityQueryString,
-      'MicrosoftODataServiceSampleTrippinInMemoryModelsService',
-      'ShareTrip',
-      data => data,
-      params,
-      deSerializers
+      'V4/(S(duh2c3dgb1c5lzc0bqwgyekc))/TripPinServiceRW/', 'People', entityQueryString, 'MicrosoftODataServiceSampleTrippinInMemoryModelsService', 'ShareTrip', (data) => data, params, deSerializers
     );
   }
 }

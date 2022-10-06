@@ -49,64 +49,64 @@ export class Airlines<T extends DeSerializers = DefaultDeSerializers>
 
   GetFavoriteAirline<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null> {
+  >(): BoundFunctionRequestBuilder<
+    Airlines<DeSerializersT>,
+    DeSerializersT,
+    any,
+    undefined | null
+  > {
     const params = {};
     const deSerializers = defaultDeSerializers as any;
-    const entityQueryString = Airlines._keys
-      .map(key => key + '=' + this[camelCase(key) as keyof Airlines])
-      .join(',');
     return new BoundFunctionRequestBuilder(
-      'V4/(S(duh2c3dgb1c5lzc0bqwgyekc))/TripPinServiceRW/',
-      'Airlines',
-      entityQueryString,
-      'MicrosoftODataServiceSampleTrippinInMemoryModelsService',
-      'GetFavoriteAirline',
+      this._entityApi as any,
+      this as any,
+      'Microsoft.OData.SampleService.Models.TripPin.GetFavoriteAirline',
       data => data,
       params,
       deSerializers
-    );
+    ) as any;
   }
 
   GetInvolvedPeople<
     DeSerializersT extends DeSerializers = DefaultDeSerializers
-  >(): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null> {
+  >(): BoundFunctionRequestBuilder<
+    Airlines<DeSerializersT>,
+    DeSerializersT,
+    any,
+    undefined | null
+  > {
     const params = {};
     const deSerializers = defaultDeSerializers as any;
-    const entityQueryString = Airlines._keys
-      .map(key => key + '=' + this[camelCase(key) as keyof Airlines])
-      .join(',');
     return new BoundFunctionRequestBuilder(
-      'V4/(S(duh2c3dgb1c5lzc0bqwgyekc))/TripPinServiceRW/',
-      'Airlines',
-      entityQueryString,
-      'MicrosoftODataServiceSampleTrippinInMemoryModelsService',
-      'GetInvolvedPeople',
+      this._entityApi as any,
+      this as any,
+      'Microsoft.OData.SampleService.Models.TripPin.GetInvolvedPeople',
       data => data,
       params,
       deSerializers
-    );
+    ) as any;
   }
 
   GetFriendsTrips<DeSerializersT extends DeSerializers = DefaultDeSerializers>(
     userName: string
-  ): BoundFunctionRequestBuilder<DeSerializersT, any, undefined | null> {
+  ): BoundFunctionRequestBuilder<
+    Airlines<DeSerializersT>,
+    DeSerializersT,
+    any,
+    undefined | null
+  > {
     const params = {
       userName: new FunctionImportParameter('userName', 'Edm.String', userName)
     };
     const deSerializers = defaultDeSerializers as any;
-    const entityQueryString = Airlines._keys
-      .map(key => key + '=' + this[camelCase(key) as keyof Airlines])
-      .join(',');
     return new BoundFunctionRequestBuilder(
-      'V4/(S(duh2c3dgb1c5lzc0bqwgyekc))/TripPinServiceRW/',
-      'Airlines',
-      entityQueryString,
-      'MicrosoftODataServiceSampleTrippinInMemoryModelsService',
-      'GetFriendsTrips',
+      this._entityApi as any,
+      this as any,
+      'Microsoft.OData.SampleService.Models.TripPin.GetFriendsTrips',
       data => data,
       params,
       deSerializers
-    );
+    ) as any;
   }
 
   ShareTrip<DeSerializersT extends DeSerializers = DefaultDeSerializers>(

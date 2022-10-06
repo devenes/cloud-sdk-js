@@ -3,28 +3,13 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import {
-  Entity,
-  DefaultDeSerializers,
-  DeSerializers,
-  DeserializedType,
-  entityDeserializer,
-  BoundActionRequestBuilder,
-  transformReturnValueForComplexType,
-  defaultDeSerializers,
-  BoundFunctionRequestBuilder,
-  FunctionImportParameter,
-  ActionImportParameter
-} from '@sap-cloud-sdk/odata-v4';
+import { Entity, DefaultDeSerializers, DeSerializers, DeserializedType, entityDeserializer, BoundActionRequestBuilder, transformReturnValueForComplexType, defaultDeSerializers, BoundFunctionRequestBuilder, FunctionImportParameter, ActionImportParameter } from '@sap-cloud-sdk/odata-v4';
 import { camelCase } from '@sap-cloud-sdk/util';
 
 /**
  * This class represents the entity "A_TestEntity4" of service "API_MULTIPLE_SCHEMAS_SRV".
  */
-export class TestEntity4<T extends DeSerializers = DefaultDeSerializers>
-  extends Entity
-  implements TestEntity4Type<T>
-{
+export class TestEntity4<T extends DeSerializers = DefaultDeSerializers> extends Entity implements TestEntity4Type<T> {
   /**
    * Technical entity name for TestEntity4.
    */
@@ -48,9 +33,7 @@ export class TestEntity4<T extends DeSerializers = DefaultDeSerializers>
   booleanProperty?: DeserializedType<T, 'Edm.Boolean'> | null;
 }
 
-export interface TestEntity4Type<
-  T extends DeSerializers = DefaultDeSerializers
-> {
+export interface TestEntity4Type<T extends DeSerializers = DefaultDeSerializers> {
   keyPropertyString: DeserializedType<T, 'Edm.String'>;
   booleanProperty?: DeserializedType<T, 'Edm.Boolean'> | null;
 }

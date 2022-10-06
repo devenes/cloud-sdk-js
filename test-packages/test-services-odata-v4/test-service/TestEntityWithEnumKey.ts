@@ -3,31 +3,14 @@
  *
  * This is a generated file powered by the SAP Cloud SDK for JavaScript.
  */
-import {
-  Entity,
-  DefaultDeSerializers,
-  DeSerializers,
-  DeserializedType,
-  entityDeserializer,
-  BoundActionRequestBuilder,
-  transformReturnValueForComplexType,
-  defaultDeSerializers,
-  BoundFunctionRequestBuilder,
-  FunctionImportParameter,
-  ActionImportParameter
-} from '@sap-cloud-sdk/odata-v4';
+import { Entity, DefaultDeSerializers, DeSerializers, DeserializedType, entityDeserializer, BoundActionRequestBuilder, transformReturnValueForComplexType, defaultDeSerializers, BoundFunctionRequestBuilder, FunctionImportParameter, ActionImportParameter } from '@sap-cloud-sdk/odata-v4';
 import { TestEnumType } from './TestEnumType';
 import { camelCase } from '@sap-cloud-sdk/util';
 
 /**
  * This class represents the entity "A_TestEntityWithEnumKey" of service "API_TEST_SRV".
  */
-export class TestEntityWithEnumKey<
-    T extends DeSerializers = DefaultDeSerializers
-  >
-  extends Entity
-  implements TestEntityWithEnumKeyType<T>
-{
+export class TestEntityWithEnumKey<T extends DeSerializers = DefaultDeSerializers> extends Entity implements TestEntityWithEnumKeyType<T> {
   /**
    * Technical entity name for TestEntityWithEnumKey.
    */
@@ -46,8 +29,6 @@ export class TestEntityWithEnumKey<
   keyPropertyEnum1!: TestEnumType;
 }
 
-export interface TestEntityWithEnumKeyType<
-  T extends DeSerializers = DefaultDeSerializers
-> {
+export interface TestEntityWithEnumKeyType<T extends DeSerializers = DefaultDeSerializers> {
   keyPropertyEnum1: TestEnumType;
 }

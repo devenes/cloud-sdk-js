@@ -138,7 +138,7 @@ function boundFunction(
   return {
     kind: StructureKind.Method,
     name: fn.name,
-    returnType: `BoundFunctionRequestBuilder<DeSerializersT, any, ${fn.returnType.returnType} | null>`,
+    returnType: `BoundFunctionRequestBuilder<${entity.className}<DeSerializersT>, DeSerializersT, any, ${fn.returnType.returnType} | null>`,
     typeParameters: [
       {
         name: 'DeSerializersT extends DeSerializers = DefaultDeSerializers'
@@ -167,13 +167,13 @@ function boundFunctionsStatements(
   entity: VdmEntity,
   service: VdmServiceMetadata
 ): string[] {
+  const name = `${service.namespaces[0]}.${fn.originalName}`;
   const statements: string[] = boundFunctionsParameterStatements(fn).concat([
     'const deSerializers = defaultDeSerializers as any;',
-    `const entityQueryString = ${entity.className}._keys.map(key => key + '=' + this[camelCase(key) as keyof ${entity.className}]).join(',');`,
     'return new BoundFunctionRequestBuilder(',
     // fixme: do we need to do anything in the transformer function?
-    `'${service.servicePath}', '${entity.entitySetName}', entityQueryString, '${service.className}', '${fn.name}', (data) => data, params, deSerializers`,
-    ');'
+    `this._entityApi as any, this as any, '${name}', (data) => data, params, deSerializers`,
+    ') as any;'
   ]);
   return statements;
 }

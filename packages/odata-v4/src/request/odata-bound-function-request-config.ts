@@ -43,7 +43,7 @@ export class ODataBoundFunctionRequestConfig<
     return `${this.oDataUri.getResourcePathForKeys(
       this.keys,
       this.entityApi
-    )}/${this.entityApi.entityConstructor._entityName}.${super.resourcePath()}`;
+    )}/${super.resourcePath()}`;
   }
 
   queryParameters(): Record<string, any> {
