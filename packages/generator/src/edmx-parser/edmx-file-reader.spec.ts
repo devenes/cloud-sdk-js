@@ -1,5 +1,6 @@
 import { resolve } from 'path';
 import { oDataServiceSpecs } from '../../../../test-resources/odata-service-specs';
+import { oDataServiceSpecsE2E } from '../../../../test-resources/odata-service-specs-e2e';
 import { readEdmxFile } from './edmx-file-reader';
 import {
   parseActionImport,
@@ -29,10 +30,10 @@ describe('edmx-file-reader', () => {
   it('v4: parses edmx file with bound action and function properly', () => {
     const metadataEdmx = readEdmxFile(
       resolve(
-        oDataServiceSpecs,
+        oDataServiceSpecsE2E,
         'v4',
-        'API_BOUND_SRV',
-        'API_BOUND_FUNCTIONS_ACTIONS_SRV.edmx'
+        'API_TEST_SRV',
+        'API-TEST_SRV.edmx'
       )
     );
 
@@ -42,7 +43,7 @@ describe('edmx-file-reader', () => {
     const parsedBoundFunctions = parsedFunctions.filter(f =>
       f.Name.startsWith('bound')
     );
-    expect(parsedBoundFunctions.length).toBe(4);
+    expect(parsedBoundFunctions.length).toBe(3);
     expect(parsedBoundFunctions.every(f => f.IsBound)).toBeTruthy();
 
     const parsedActions = parseActions(metadataEdmx.root);

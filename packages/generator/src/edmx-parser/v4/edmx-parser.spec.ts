@@ -12,6 +12,7 @@ import {
   parseFunctions
 } from '../v4';
 import { oDataServiceSpecs } from '../../../../../test-resources/odata-service-specs';
+import { oDataServiceSpecsE2E } from '../../../../../test-resources/odata-service-specs-e2e';
 
 describe('edmx-edmx-parser', () => {
   it('v4: parses EDMX file to JSON and coerces properties to arrays', () => {
@@ -75,17 +76,17 @@ describe('edmx-edmx-parser', () => {
   it('v4: parses EDMX with bound functions/actions', () => {
     const metadataEdmx = readEdmxFile(
       resolve(
-        oDataServiceSpecs,
+        oDataServiceSpecsE2E,
         'v4',
-        'API_BOUND_SRV',
-        'API_BOUND_FUNCTIONS_ACTIONS_SRV.edmx'
+        'API_TEST_SRV',
+        'API-TEST_SRV.edmx'
       )
     );
 
     parseEntityType(metadataEdmx.root).forEach(e => {
       expect(e.BoundFunction).toBeDefined();
       expect(e.BoundAction).toBeDefined();
-      expect(e.BoundFunction.length).toEqual(5);
+      expect(e.BoundFunction.length).toEqual(4);
       expect(e.BoundAction.length).toEqual(2);
       expect(e.BoundFunction.every(f => f.IsBound)).toBeTruthy();
       expect(e.BoundAction.every(a => a.IsBound)).toBeTruthy();
