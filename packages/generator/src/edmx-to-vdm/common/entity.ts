@@ -16,7 +16,8 @@ import {
   VdmMappedEdmType,
   VdmEnumType,
   VdmFunctionImport,
-  VdmActionImport
+  VdmActionImport,
+  VdmReturnTypeCategory
 } from '../../vdm-types';
 import { ServiceNameFormatter } from '../../service-name-formatter';
 import { applyPrefixOnJsConflictParam } from '../../name-formatting-strategies';
@@ -40,6 +41,7 @@ import {
   typesForCollection
 } from '../edmx-to-vdm-util';
 import { SwaggerMetadata } from '../../swagger-parser/swagger-types';
+import { EdmxAction, EdmxFunction } from '../../edmx-parser';
 
 /**
  * @internal
@@ -49,6 +51,8 @@ export function transformEntityBase(
   classNames: Record<string, any>,
   complexTypes: VdmComplexType[],
   enumTypes: VdmEnumType[],
+  boundFunctions: EdmxFunction[],
+  boundActions: EdmxAction[],
   formatter: ServiceNameFormatter
 ): Omit<VdmEntity, 'navigationProperties'> {
   const entity = {
@@ -66,8 +70,8 @@ export function transformEntityBase(
     deletable: entityMetadata.entitySet
       ? isDeletable(entityMetadata.entitySet)
       : true,
-    boundFunctions: boundFunctions(entityMetadata),
-    boundActions: boundActions(entityMetadata)
+    boundFunctions: transformBoundFunctions(boundFunctions),
+    boundActions: transformBoundActions(boundActions)
   };
 
   return {
@@ -134,10 +138,10 @@ function properties(
 /**
  * @internal
  */
-export function boundFunctions(
-  entity: JoinedEntityMetadata<EdmxEntitySetBase, any>
+export function transformBoundFunctions(
+  functions: EdmxFunction[]
 ): VdmFunctionImport[] {
-  return entity.entityType.BoundFunction.map(f => ({
+  return functions.map(f => ({
     name: f.Name,
     // Remove first parameter which per spec always is the entity the function is bound to
     // cf https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/os/odata-csdl-xml-v4.01-os.html#sec_Parameter
@@ -146,16 +150,23 @@ export function boundFunctions(
       .map(p => ({
         parameterName: p.Name,
         jsType: edmToTsType(p.Type),
-        edmType: p.Type
+        edmType: p.Type,
+        originalName: '', nullable: false, description: '', fieldType: ''
       })),
-      returnType: f.ReturnType.Type // edmToTsType(f.ReturnType.Type)
+    returnType: {
+      returnType: '', isCollection: false, isNullable: false, returnTypeCategory: VdmReturnTypeCategory.VOID
+    },
+    httpMethod: '',
+    originalName: '',
+    parametersTypeName: '',
+    description: ''
   }));
 }
 
-function boundActions(
-  entity: JoinedEntityMetadata<EdmxEntitySetBase, any>
+function transformBoundActions(
+  actions: EdmxAction[]
 ): VdmActionImport[] {
-  return entity.entityType.BoundAction.map(a => ({
+  return actions.map(a => ({
     name: a.Name,
     // Remove first parameter which per spec always is the entity the function is bound to
     // cf https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/os/odata-csdl-xml-v4.01-os.html#sec_Parameter
@@ -164,9 +175,16 @@ function boundActions(
       .map(p => ({
         parameterName: p.Name,
         jsType: edmToTsType(p.Type),
-        edmType: p.Type
+        edmType: p.Type,
+        originalName: '', nullable: false, description: '', fieldType: ''
       })),
-    returnType: 'string' // a.ReturnType?.Type ? a.ReturnType?.Type: 'any' // edmToTsType(a.ReturnType.Type)
+    returnType: {
+      returnType: '', isCollection: false, isNullable: false, returnTypeCategory: VdmReturnTypeCategory.VOID
+    },
+    httpMethod: '',
+    originalName: '',
+    parametersTypeName: '',
+    description: ''
   }));
 }
 

@@ -27,36 +27,8 @@ export function parseEntityTypesBase(root: any): EdmxEntityTypeBase<any>[] {
     },
     NavigationProperty: forceArray(e.NavigationProperty),
     Property: forceArray(e.Property),
-    Namespace: e.Namespace,
-    BoundFunction: extractBoundFunctions(root),
-    BoundAction: extractBoundActions(root)
+    Namespace: e.Namespace
   }));
-}
-
-function extractBoundFunctions(root: any) {
-  // fixme: root will have > 1 elements if the edmx files has multiple "schema" elements
-  // fixme: this is v4 specific and should not be in common, what about the v2 workaround which emulates bound fn?
-  const x = root[0];
-  if (!x) {
-    return [];
-  }
-  const y = root[0]['Function'];
-  if (!y) {
-    return [];
-  }
-  return y.filter(f => f.IsBound === 'true');
-}
-
-function extractBoundActions(root: any) {
-  const x = root[0];
-  if (!x) {
-    return [];
-  }
-  const y = root[0]['Action'];
-  if (!y) {
-    return [];
-  }
-  return y.filter(a => a.IsBound === 'true');
 }
 
 /**

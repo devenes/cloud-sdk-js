@@ -167,6 +167,44 @@ describe('entity', () => {
   });
 });
 
+it('transforms bound actions and functions', () => {
+  const service = createTestServiceData(
+    [
+      createEntityType(
+        'TestEntityType',
+        [],
+        [['CollectionNavProperty', 'Collection(TestEntityType)']]
+      )
+    ],
+    [
+      createTestEntitySet('TestEntity', 'ns.TestEntityType', [
+        ['CollectionNavProperty', 'TestEntity']
+      ])
+    ]
+  );
+
+  service.edmx.root.Function = [
+    {
+      IsBound: true,
+      Name: 'fn1',
+      ReturnType: {
+        Type: 'xx'
+      },
+      Parameter: [
+        {
+          Name: 'p1',
+          Type: 'Edm.String'
+        }
+      ]
+    }
+  ];
+
+  const entity = generateEntitiesV4(service, [], [], getFormatter())[0];
+
+  expect(entity.boundFunctions.length).toBe(1);
+
+});
+
 const defaultNamespace = 'ns';
 
 export function getFormatter() {

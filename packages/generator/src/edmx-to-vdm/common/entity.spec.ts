@@ -3,7 +3,7 @@ import {
   EdmxEntityTypeBase,
   JoinedEntityMetadata
 } from '../../edmx-parser/common/edmx-types';
-import { boundFunctions } from './entity';
+import { transformBoundFunctions } from './entity';
 
 describe('entity parser', () => {
   const testEntitySet: EdmxEntitySetBase = {
@@ -55,7 +55,7 @@ describe('entity parser', () => {
   };
 
   test('parse boundFunctions with primitive types', async () => {
-    const vdmFunctions = boundFunctions(testEntity);
+    const vdmFunctions = transformBoundFunctions(testEntity);
     expect(vdmFunctions[0].parameters[0].jsType).toEqual('string');
     expect(vdmFunctions[0].returnType).toEqual('string');
   });
