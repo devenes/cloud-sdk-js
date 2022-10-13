@@ -34,7 +34,6 @@ export function generateEntitiesV4(
   const entitySets = parseEntitySetsV4(serviceMetadata.edmx.root);
   const entityTypes = parseEntityType(serviceMetadata.edmx.root);
 
-  //todo(fwilhe): extract bound a/fn here
   const boundFunctions = serviceMetadata.edmx.root.Function;
   const boundActions = serviceMetadata.edmx.root.Action;
 

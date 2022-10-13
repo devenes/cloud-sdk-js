@@ -26,6 +26,7 @@ import {
   EdmxEntitySetBase,
   EdmxEntityTypeBase,
   EdmxNamed,
+  EdmxParameter,
   JoinedEntityMetadata
 } from '../../edmx-parser/common';
 import {
@@ -135,29 +136,46 @@ function properties(
   });
 }
 
+function emptyIfUndefined(input: string | undefined): string {
+  return input? input : ''
+}
+
+function stringToBool(input: string | undefined): boolean {
+  if (input) {
+    return input.toLowerCase() === 'true'
+  }
+  return false
+}
+
 /**
  * @internal
  */
 export function transformBoundFunctions(
   functions: EdmxFunction[]
 ): VdmFunctionImport[] {
-  return functions.map(f => ({
+  return functions.filter(f => f.IsBound).map(f => ({
     name: f.Name,
     // Remove first parameter which per spec always is the entity the function is bound to
     // cf https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/os/odata-csdl-xml-v4.01-os.html#sec_Parameter
     parameters: forceArray(f.Parameter)
       .slice(1)
-      .map(p => ({
+      .map((p: EdmxParameter) => ({
         parameterName: p.Name,
         jsType: edmToTsType(p.Type),
         edmType: p.Type,
-        originalName: '', nullable: false, description: '', fieldType: ''
+        originalName: p.Name,
+        nullable: stringToBool(p.Nullable), 
+        description: emptyIfUndefined(p.Documentation?.Summary), 
+        fieldType: edmToTsType(p.Type)
       })),
     returnType: {
-      returnType: '', isCollection: false, isNullable: false, returnTypeCategory: VdmReturnTypeCategory.VOID
+      returnType: emptyIfUndefined(f.ReturnType?.Type),
+      isCollection: false, 
+      isNullable: stringToBool(f.ReturnType?.Nullable), 
+      returnTypeCategory: VdmReturnTypeCategory.VOID
     },
     httpMethod: '',
-    originalName: '',
+    originalName: f.Name,
     parametersTypeName: '',
     description: ''
   }));
@@ -166,23 +184,29 @@ export function transformBoundFunctions(
 function transformBoundActions(
   actions: EdmxAction[]
 ): VdmActionImport[] {
-  return actions.map(a => ({
+  return actions.filter(a => a.IsBound).map(a => ({
     name: a.Name,
     // Remove first parameter which per spec always is the entity the function is bound to
     // cf https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/os/odata-csdl-xml-v4.01-os.html#sec_Parameter
     parameters: forceArray(a.Parameter)
       .slice(1)
-      .map(p => ({
+      .map((p: EdmxParameter) => ({
         parameterName: p.Name,
         jsType: edmToTsType(p.Type),
         edmType: p.Type,
-        originalName: '', nullable: false, description: '', fieldType: ''
+        originalName: p.Name,
+        nullable: stringToBool(p.Nullable), 
+        description: emptyIfUndefined(p.Documentation?.Summary), 
+        fieldType: edmToTsType(p.Type)
       })),
     returnType: {
-      returnType: '', isCollection: false, isNullable: false, returnTypeCategory: VdmReturnTypeCategory.VOID
+      returnType: emptyIfUndefined(a.ReturnType?.Type),
+      isCollection: false, 
+      isNullable: stringToBool(a.ReturnType?.Nullable), 
+      returnTypeCategory: VdmReturnTypeCategory.VOID
     },
-    httpMethod: '',
-    originalName: '',
+    httpMethod: 'post',
+    originalName: a.Name,
     parametersTypeName: '',
     description: ''
   }));
