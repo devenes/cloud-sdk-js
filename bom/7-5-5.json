@@ -1,0 +1,318 @@
+{
+  "scv": "73555000100200010055",
+  "artifacts": [
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-access-sequence-for-pricing-in-sales-service/-/cloud-sdk-op-vdm-access-sequence-for-pricing-in-sales-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-accounting-document-service/-/cloud-sdk-op-vdm-accounting-document-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-activity-appointment-service/-/cloud-sdk-op-vdm-activity-appointment-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-activity-phone-call-service/-/cloud-sdk-op-vdm-activity-phone-call-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-activity-type-service/-/cloud-sdk-op-vdm-activity-type-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-align-purchase-requisition-service/-/cloud-sdk-op-vdm-align-purchase-requisition-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-allergen-service/-/cloud-sdk-op-vdm-allergen-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-allergen-statement-service/-/cloud-sdk-op-vdm-allergen-statement-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-allowlist-intercompany-postings-service/-/cloud-sdk-op-vdm-allowlist-intercompany-postings-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-api-legal-document-status-service/-/cloud-sdk-op-vdm-api-legal-document-status-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-assortment-module-service/-/cloud-sdk-op-vdm-assortment-module-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-attachment-service/-/cloud-sdk-op-vdm-attachment-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-bank-detail-service/-/cloud-sdk-op-vdm-bank-detail-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-bank-service/-/cloud-sdk-op-vdm-bank-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-batch-service/-/cloud-sdk-op-vdm-batch-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-bill-of-material-comparison-service/-/cloud-sdk-op-vdm-bill-of-material-comparison-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-bill-of-material-v2-service/-/cloud-sdk-op-vdm-bill-of-material-v2-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-bill-of-material-where-used-service/-/cloud-sdk-op-vdm-bill-of-material-where-used-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-billing-document-request-service/-/cloud-sdk-op-vdm-billing-document-request-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-billing-document-service/-/cloud-sdk-op-vdm-billing-document-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-brazil-business-place-service/-/cloud-sdk-op-vdm-brazil-business-place-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-brazil-nota-fiscal-service/-/cloud-sdk-op-vdm-brazil-nota-fiscal-service-2.1.0.tgz"
+    },
+
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-change-process-group-service/-/cloud-sdk-op-vdm-change-process-group-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-change-master-v2-service/-/cloud-sdk-op-vdm-change-master-v2-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-change-record-service/-/cloud-sdk-op-vdm-change-record-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-class-data-for-classification-service/-/cloud-sdk-op-vdm-class-data-for-classification-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-chart-of-accounts-service/-/cloud-sdk-op-vdm-chart-of-accounts-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-characteristic-data-for-classification-service/-/cloud-sdk-op-vdm-characteristic-data-for-classification-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-company-code-service/-/cloud-sdk-op-vdm-company-code-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-contract-account-service/-/cloud-sdk-op-vdm-contract-account-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-contract-accounting-business-transaction-service/-/cloud-sdk-op-vdm-contract-accounting-business-transaction-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-contract-accounting-business-partner-payment-manage-service/-/cloud-sdk-op-vdm-contract-accounting-business-partner-payment-manage-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-contract-accounting-business-partner-invoice-v2-service/-/cloud-sdk-op-vdm-contract-accounting-business-partner-invoice-v2-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-contract-accounting-business-partner-payment-manage-v2-service/-/cloud-sdk-op-vdm-contract-accounting-business-partner-payment-manage-v2-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-contract-accounting-document-manage-service/-/cloud-sdk-op-vdm-contract-accounting-document-manage-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-contract-accounting-sepa-mandate-service/-/cloud-sdk-op-vdm-contract-accounting-sepa-mandate-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-controlling-area-service/-/cloud-sdk-op-vdm-controlling-area-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-controlling-debit-credit-code-service/-/cloud-sdk-op-vdm-controlling-debit-credit-code-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-cost-center-activity-type-service/-/cloud-sdk-op-vdm-cost-center-activity-type-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-cost-center-service/-/cloud-sdk-op-vdm-cost-center-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-country-service/-/cloud-sdk-op-vdm-country-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-credit-management-master-data-integration-service/-/cloud-sdk-op-vdm-credit-management-master-data-integration-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-condition-contract-service/-/cloud-sdk-op-vdm-condition-contract-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-condition-contract-type-service/-/cloud-sdk-op-vdm-condition-contract-type-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-condition-exclusion-for-pricing-in-sales-service/-/cloud-sdk-op-vdm-condition-exclusion-for-pricing-in-sales-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-contract-accounting-business-partner-invoice-service/-/cloud-sdk-op-vdm-contract-accounting-business-partner-invoice-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-condition-table-for-pricing-in-sales-service/-/cloud-sdk-op-vdm-condition-table-for-pricing-in-sales-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-contract-accounting-dispute-case-service/-/cloud-sdk-op-vdm-contract-accounting-dispute-case-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-contract-accounting-creditworthiness-service/-/cloud-sdk-op-vdm-contract-accounting-creditworthiness-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-credit-memo-request-service/-/cloud-sdk-op-vdm-credit-memo-request-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-lockbox-post-in-service/-/cloud-sdk-op-vdm-lockbox-post-in-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-maintenance-item-service/-/cloud-sdk-op-vdm-maintenance-item-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-maintenance-bill-of-material-service/-/cloud-sdk-op-vdm-maintenance-bill-of-material-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-maintenance-notification-service/-/cloud-sdk-op-vdm-maintenance-notification-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-maintenance-plan-service/-/cloud-sdk-op-vdm-maintenance-plan-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-maintenance-task-list-service/-/cloud-sdk-op-vdm-maintenance-task-list-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-master-recipe-service/-/cloud-sdk-op-vdm-master-recipe-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-material-planning-data-service/-/cloud-sdk-op-vdm-material-planning-data-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-material-document-service/-/cloud-sdk-op-vdm-material-document-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-material-requirement-planning-change-request-reason-service/-/cloud-sdk-op-vdm-material-requirement-planning-change-request-reason-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-material-requirement-planning-change-request-priority-service/-/cloud-sdk-op-vdm-material-requirement-planning-change-request-priority-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-material-requirement-planning-change-request-rejection-service/-/cloud-sdk-op-vdm-material-requirement-planning-change-request-rejection-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-material-stock-service/-/cloud-sdk-op-vdm-material-stock-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-maintenance-order-service/-/cloud-sdk-op-vdm-maintenance-order-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-maintenance-order-operation-confirmation-service/-/cloud-sdk-op-vdm-maintenance-order-operation-confirmation-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-manual-accruals-service/-/cloud-sdk-op-vdm-manual-accruals-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-master-inspection-characteristic-service/-/cloud-sdk-op-vdm-master-inspection-characteristic-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-legal-document-access-level-service/-/cloud-sdk-op-vdm-legal-document-access-level-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-legal-document-content-type-service/-/cloud-sdk-op-vdm-legal-document-content-type-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-legal-document-service/-/cloud-sdk-op-vdm-legal-document-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-legal-transaction-service/-/cloud-sdk-op-vdm-legal-transaction-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-product-substitution-control-service/-/cloud-sdk-op-vdm-product-substitution-control-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-product-substitution-exclusion-service/-/cloud-sdk-op-vdm-product-substitution-exclusion-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-product-substitution-group-service/-/cloud-sdk-op-vdm-product-substitution-group-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-product-specification-service/-/cloud-sdk-op-vdm-product-specification-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-product-substitution-service/-/cloud-sdk-op-vdm-product-substitution-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-product-specification-property-configuration-service/-/cloud-sdk-op-vdm-product-specification-property-configuration-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-product-service/-/cloud-sdk-op-vdm-product-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-product-specification-composition-configuration-service/-/cloud-sdk-op-vdm-product-specification-composition-configuration-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-product-group-data-service/-/cloud-sdk-op-vdm-product-group-data-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-product-group-service/-/cloud-sdk-op-vdm-product-group-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-product-master-data-including-classification-service/-/cloud-sdk-op-vdm-product-master-data-including-classification-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-purchase-order-service/-/cloud-sdk-op-vdm-purchase-order-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-purchasing-info-record-process-service/-/cloud-sdk-op-vdm-purchasing-info-record-process-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-purchase-requisition-service/-/cloud-sdk-op-vdm-purchase-requisition-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-production-routing-service/-/cloud-sdk-op-vdm-production-routing-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-production-supply-area-service/-/cloud-sdk-op-vdm-production-supply-area-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-profit-center-service/-/cloud-sdk-op-vdm-profit-center-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-project-definition-service/-/cloud-sdk-op-vdm-project-definition-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-project-service/-/cloud-sdk-op-vdm-project-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-purchase-contract-service/-/cloud-sdk-op-vdm-purchase-contract-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-product-type-service/-/cloud-sdk-op-vdm-product-type-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-production-order-confirmation-v2-service/-/cloud-sdk-op-vdm-production-order-confirmation-v2-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-product-availability-info-basic-service/-/cloud-sdk-op-vdm-product-availability-info-basic-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-production-order-v2-service/-/cloud-sdk-op-vdm-production-order-v2-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-sales-organization-service/-/cloud-sdk-op-vdm-sales-organization-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-sales-order-without-charge-service/-/cloud-sdk-op-vdm-sales-order-without-charge-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-sales-pricing-condition-record-service/-/cloud-sdk-op-vdm-sales-pricing-condition-record-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-sales-pricing-condition-type-service/-/cloud-sdk-op-vdm-sales-pricing-condition-type-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-sales-pricing-procedure-service/-/cloud-sdk-op-vdm-sales-pricing-procedure-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-sales-quotation-service/-/cloud-sdk-op-vdm-sales-quotation-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-segment-service/-/cloud-sdk-op-vdm-segment-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-segmentation-structure-service/-/cloud-sdk-op-vdm-segmentation-structure-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-scheduling-agreement-service/-/cloud-sdk-op-vdm-scheduling-agreement-service-2.1.0.tgz"
+    }
+  ]
+}

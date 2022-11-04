@@ -1,0 +1,20 @@
+{
+  "scv": "73555000100200010055",
+  "artifacts": [
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-service-order-template-service/-/cloud-sdk-op-vdm-service-order-template-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-service-order-service/-/cloud-sdk-op-vdm-service-order-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-service-request-service/-/cloud-sdk-op-vdm-service-request-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-service-entry-sheet-service/-/cloud-sdk-op-vdm-service-entry-sheet-service-2.1.0.tgz"
+    },
+    {
+      "nexusPath": "@sap/cloud-sdk-op-vdm-service-confirmation-service/-/cloud-sdk-op-vdm-service-confirmation-service-2.1.0.tgz"
+    }
+  ]
+}
